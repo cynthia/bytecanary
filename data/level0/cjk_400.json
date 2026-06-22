@@ -1,0 +1,3206 @@
+{
+  "description": "Evaluation set for Level 0: 4000 characters (1000 Common, 1000 Uncommon, 1000 Rare, 1000 Unseen)",
+  "source_snapshot": "character_coverage/frequency_snapshots/snapshot_80000000.json",
+  "char_frequencies": [
+    {
+      "char": "ᅲ",
+      "codepoint": 4466,
+      "hex": "U+1172",
+      "count": 2135754,
+      "frequency": 1.8539687188242362e-05,
+      "tier": "common"
+    },
+    {
+      "char": "办",
+      "codepoint": 21150,
+      "hex": "U+529E",
+      "count": 8001032,
+      "frequency": 6.94539869587589e-05,
+      "tier": "common"
+    },
+    {
+      "char": "场",
+      "codepoint": 22330,
+      "hex": "U+573A",
+      "count": 20701108,
+      "frequency": 0.0001796986295097757,
+      "tier": "common"
+    },
+    {
+      "char": "ᆞ",
+      "codepoint": 4510,
+      "hex": "U+119E",
+      "count": 1916804,
+      "frequency": 1.663906356311247e-05,
+      "tier": "common"
+    },
+    {
+      "char": "飞",
+      "codepoint": 39134,
+      "hex": "U+98DE",
+      "count": 3933284,
+      "frequency": 3.4143377459444616e-05,
+      "tier": "common"
+    },
+    {
+      "char": "择",
+      "codepoint": 25321,
+      "hex": "U+62E9",
+      "count": 4425997,
+      "frequency": 3.8420436003443806e-05,
+      "tier": "common"
+    },
+    {
+      "char": "亿",
+      "codepoint": 20159,
+      "hex": "U+4EBF",
+      "count": 4699547,
+      "frequency": 4.079502194842797e-05,
+      "tier": "common"
+    },
+    {
+      "char": "热",
+      "codepoint": 28909,
+      "hex": "U+70ED",
+      "count": 6978609,
+      "frequency": 6.0578712655602115e-05,
+      "tier": "common"
+    },
+    {
+      "char": "词",
+      "codepoint": 35789,
+      "hex": "U+8BCD",
+      "count": 1931050,
+      "frequency": 1.6762727797703017e-05,
+      "tier": "common"
+    },
+    {
+      "char": "该",
+      "codepoint": 35813,
+      "hex": "U+8BE5",
+      "count": 8216106,
+      "frequency": 7.132096446755628e-05,
+      "tier": "common"
+    },
+    {
+      "char": "졸",
+      "codepoint": 51320,
+      "hex": "U+C878",
+      "count": 2061806,
+      "frequency": 1.7897772066839736e-05,
+      "tier": "common"
+    },
+    {
+      "char": "盖",
+      "codepoint": 30422,
+      "hex": "U+76D6",
+      "count": 1922055,
+      "frequency": 1.6684645543727026e-05,
+      "tier": "common"
+    },
+    {
+      "char": "틴",
+      "codepoint": 54004,
+      "hex": "U+D2F4",
+      "count": 1635465,
+      "frequency": 1.4196864202206244e-05,
+      "tier": "common"
+    },
+    {
+      "char": "휘",
+      "codepoint": 55064,
+      "hex": "U+D718",
+      "count": 2368655,
+      "frequency": 2.0561414262535017e-05,
+      "tier": "common"
+    },
+    {
+      "char": "战",
+      "codepoint": 25112,
+      "hex": "U+6218",
+      "count": 9757694,
+      "frequency": 8.470291730161309e-05,
+      "tier": "common"
+    },
+    {
+      "char": "촌",
+      "codepoint": 52492,
+      "hex": "U+CD0C",
+      "count": 2268024,
+      "frequency": 1.968787392903218e-05,
+      "tier": "common"
+    },
+    {
+      "char": "폴",
+      "codepoint": 54260,
+      "hex": "U+D3F4",
+      "count": 2810354,
+      "frequency": 2.4395639220727517e-05,
+      "tier": "common"
+    },
+    {
+      "char": "车",
+      "codepoint": 36710,
+      "hex": "U+8F66",
+      "count": 18142543,
+      "frequency": 0.00015748867707574755,
+      "tier": "common"
+    },
+    {
+      "char": "资",
+      "codepoint": 36164,
+      "hex": "U+8D44",
+      "count": 18608561,
+      "frequency": 0.00016153400624010372,
+      "tier": "common"
+    },
+    {
+      "char": "干",
+      "codepoint": 24178,
+      "hex": "U+5E72",
+      "count": 9234077,
+      "frequency": 8.015759261232495e-05,
+      "tier": "common"
+    },
+    {
+      "char": "历",
+      "codepoint": 21382,
+      "hex": "U+5386",
+      "count": 4800155,
+      "frequency": 4.1668362627473725e-05,
+      "tier": "common"
+    },
+    {
+      "char": "农",
+      "codepoint": 20892,
+      "hex": "U+519C",
+      "count": 4594325,
+      "frequency": 3.988162884916596e-05,
+      "tier": "common"
+    },
+    {
+      "char": "谈",
+      "codepoint": 35848,
+      "hex": "U+8C08",
+      "count": 2482750,
+      "frequency": 2.155183057908763e-05,
+      "tier": "common"
+    },
+    {
+      "char": "抓",
+      "codepoint": 25235,
+      "hex": "U+6293",
+      "count": 2244754,
+      "frequency": 1.9485875702237148e-05,
+      "tier": "common"
+    },
+    {
+      "char": "长",
+      "codepoint": 38271,
+      "hex": "U+957F",
+      "count": 20231623,
+      "frequency": 0.00017562320460617163,
+      "tier": "common"
+    },
+    {
+      "char": "逐",
+      "codepoint": 36880,
+      "hex": "U+9010",
+      "count": 2329427,
+      "frequency": 2.022089056503972e-05,
+      "tier": "common"
+    },
+    {
+      "char": "维",
+      "codepoint": 32500,
+      "hex": "U+7EF4",
+      "count": 5296167,
+      "frequency": 4.5974058565121256e-05,
+      "tier": "common"
+    },
+    {
+      "char": "徐",
+      "codepoint": 24464,
+      "hex": "U+5F90",
+      "count": 1966613,
+      "frequency": 1.7071436991493812e-05,
+      "tier": "common"
+    },
+    {
+      "char": "挙",
+      "codepoint": 25369,
+      "hex": "U+6319",
+      "count": 2112313,
+      "frequency": 1.833620457396207e-05,
+      "tier": "common"
+    },
+    {
+      "char": "惊",
+      "codepoint": 24778,
+      "hex": "U+60CA",
+      "count": 2008644,
+      "frequency": 1.7436292490867342e-05,
+      "tier": "common"
+    },
+    {
+      "char": "뿌",
+      "codepoint": 49100,
+      "hex": "U+BFCC",
+      "count": 1526733,
+      "frequency": 1.3253002096667886e-05,
+      "tier": "common"
+    },
+    {
+      "char": "巻",
+      "codepoint": 24059,
+      "hex": "U+5DFB",
+      "count": 2811916,
+      "frequency": 2.440919836255192e-05,
+      "tier": "common"
+    },
+    {
+      "char": "吗",
+      "codepoint": 21527,
+      "hex": "U+5417",
+      "count": 4731726,
+      "frequency": 4.107435589514208e-05,
+      "tier": "common"
+    },
+    {
+      "char": "宜",
+      "codepoint": 23452,
+      "hex": "U+5B9C",
+      "count": 2717336,
+      "frequency": 2.3588184512518645e-05,
+      "tier": "common"
+    },
+    {
+      "char": "顺",
+      "codepoint": 39034,
+      "hex": "U+987A",
+      "count": 2270463,
+      "frequency": 1.9709045982111386e-05,
+      "tier": "common"
+    },
+    {
+      "char": "券",
+      "codepoint": 21048,
+      "hex": "U+5238",
+      "count": 3914114,
+      "frequency": 3.3976969809781494e-05,
+      "tier": "common"
+    },
+    {
+      "char": "归",
+      "codepoint": 24402,
+      "hex": "U+5F52",
+      "count": 1781225,
+      "frequency": 1.5462152622388627e-05,
+      "tier": "common"
+    },
+    {
+      "char": "辑",
+      "codepoint": 36753,
+      "hex": "U+8F91",
+      "count": 1684186,
+      "frequency": 1.4619793106704775e-05,
+      "tier": "common"
+    },
+    {
+      "char": "对",
+      "codepoint": 23545,
+      "hex": "U+5BF9",
+      "count": 36445999,
+      "frequency": 0.0003163741801363799,
+      "tier": "common"
+    },
+    {
+      "char": "塞",
+      "codepoint": 22622,
+      "hex": "U+585E",
+      "count": 1876041,
+      "frequency": 1.628521510076413e-05,
+      "tier": "common"
+    },
+    {
+      "char": "縮",
+      "codepoint": 32302,
+      "hex": "U+7E2E",
+      "count": 1787394,
+      "frequency": 1.5515703420029306e-05,
+      "tier": "common"
+    },
+    {
+      "char": "却",
+      "codepoint": 21364,
+      "hex": "U+5374",
+      "count": 6332988,
+      "frequency": 5.497431655841104e-05,
+      "tier": "common"
+    },
+    {
+      "char": "\\",
+      "codepoint": 92,
+      "hex": "U+005C",
+      "count": 2017620,
+      "frequency": 1.751420981290053e-05,
+      "tier": "common"
+    },
+    {
+      "char": "遍",
+      "codepoint": 36941,
+      "hex": "U+904D",
+      "count": 1530300,
+      "frequency": 1.3283965898772652e-05,
+      "tier": "common"
+    },
+    {
+      "char": "暴",
+      "codepoint": 26292,
+      "hex": "U+66B4",
+      "count": 3272713,
+      "frequency": 2.8409205965150587e-05,
+      "tier": "common"
+    },
+    {
+      "char": "幻",
+      "codepoint": 24187,
+      "hex": "U+5E7B",
+      "count": 1551528,
+      "frequency": 1.3468238282030279e-05,
+      "tier": "common"
+    },
+    {
+      "char": "亚",
+      "codepoint": 20122,
+      "hex": "U+4E9A",
+      "count": 6425347,
+      "frequency": 5.57760507323931e-05,
+      "tier": "common"
+    },
+    {
+      "char": "患",
+      "codepoint": 24739,
+      "hex": "U+60A3",
+      "count": 4887697,
+      "frequency": 4.2428282213640065e-05,
+      "tier": "common"
+    },
+    {
+      "char": "漏",
+      "codepoint": 28431,
+      "hex": "U+6F0F",
+      "count": 1872337,
+      "frequency": 1.6253062052545443e-05,
+      "tier": "common"
+    },
+    {
+      "char": "船",
+      "codepoint": 33337,
+      "hex": "U+8239",
+      "count": 3304696,
+      "frequency": 2.868683850866522e-05,
+      "tier": "common"
+    },
+    {
+      "char": "웅",
+      "codepoint": 50885,
+      "hex": "U+C6C5",
+      "count": 1524035,
+      "frequency": 1.3229581760789373e-05,
+      "tier": "common"
+    },
+    {
+      "char": "项",
+      "codepoint": 39033,
+      "hex": "U+9879",
+      "count": 9317276,
+      "frequency": 8.087981222861718e-05,
+      "tier": "common"
+    },
+    {
+      "char": "勉",
+      "codepoint": 21193,
+      "hex": "U+52C9",
+      "count": 2983936,
+      "frequency": 2.5902440088949926e-05,
+      "tier": "common"
+    },
+    {
+      "char": "备",
+      "codepoint": 22791,
+      "hex": "U+5907",
+      "count": 8833679,
+      "frequency": 7.668188629465078e-05,
+      "tier": "common"
+    },
+    {
+      "char": "补",
+      "codepoint": 34917,
+      "hex": "U+8865",
+      "count": 3096567,
+      "frequency": 2.6880147965277878e-05,
+      "tier": "common"
+    },
+    {
+      "char": "勧",
+      "codepoint": 21223,
+      "hex": "U+52E7",
+      "count": 1717195,
+      "frequency": 1.4906331975130958e-05,
+      "tier": "common"
+    },
+    {
+      "char": "皇",
+      "codepoint": 30343,
+      "hex": "U+7687",
+      "count": 3225999,
+      "frequency": 2.8003699082189557e-05,
+      "tier": "common"
+    },
+    {
+      "char": "贵",
+      "codepoint": 36149,
+      "hex": "U+8D35",
+      "count": 2239935,
+      "frequency": 1.9444043753164295e-05,
+      "tier": "common"
+    },
+    {
+      "char": "读",
+      "codepoint": 35835,
+      "hex": "U+8BFB",
+      "count": 4135550,
+      "frequency": 3.589917347753332e-05,
+      "tier": "common"
+    },
+    {
+      "char": "셜",
+      "codepoint": 49500,
+      "hex": "U+C15C",
+      "count": 1785037,
+      "frequency": 1.549524317849274e-05,
+      "tier": "common"
+    },
+    {
+      "char": "视",
+      "codepoint": 35270,
+      "hex": "U+89C6",
+      "count": 14115486,
+      "frequency": 0.00012253129103352467,
+      "tier": "common"
+    },
+    {
+      "char": "唐",
+      "codepoint": 21776,
+      "hex": "U+5510",
+      "count": 1948282,
+      "frequency": 1.6912312389199883e-05,
+      "tier": "common"
+    },
+    {
+      "char": "頑",
+      "codepoint": 38929,
+      "hex": "U+9811",
+      "count": 2686235,
+      "frequency": 2.3318208283401657e-05,
+      "tier": "common"
+    },
+    {
+      "char": "弁",
+      "codepoint": 24321,
+      "hex": "U+5F01",
+      "count": 2395776,
+      "frequency": 2.0796841589948344e-05,
+      "tier": "common"
+    },
+    {
+      "char": "权",
+      "codepoint": 26435,
+      "hex": "U+6743",
+      "count": 7508707,
+      "frequency": 6.518029649864439e-05,
+      "tier": "common"
+    },
+    {
+      "char": "乎",
+      "codepoint": 20046,
+      "hex": "U+4E4E",
+      "count": 2986269,
+      "frequency": 2.592269199540084e-05,
+      "tier": "common"
+    },
+    {
+      "char": "统",
+      "codepoint": 32479,
+      "hex": "U+7EDF",
+      "count": 10072549,
+      "frequency": 8.743605660962986e-05,
+      "tier": "common"
+    },
+    {
+      "char": "닝",
+      "codepoint": 45789,
+      "hex": "U+B2DD",
+      "count": 2344780,
+      "frequency": 2.0354164255455884e-05,
+      "tier": "common"
+    },
+    {
+      "char": "毒",
+      "codepoint": 27602,
+      "hex": "U+6BD2",
+      "count": 3752312,
+      "frequency": 3.257242674609907e-05,
+      "tier": "common"
+    },
+    {
+      "char": "멘",
+      "codepoint": 47704,
+      "hex": "U+BA58",
+      "count": 1744055,
+      "frequency": 1.5139493658487837e-05,
+      "tier": "common"
+    },
+    {
+      "char": "삭",
+      "codepoint": 49325,
+      "hex": "U+C0AD",
+      "count": 2182508,
+      "frequency": 1.8945541296346144e-05,
+      "tier": "common"
+    },
+    {
+      "char": "雰",
+      "codepoint": 38640,
+      "hex": "U+96F0",
+      "count": 2205756,
+      "frequency": 1.9147348549312664e-05,
+      "tier": "common"
+    },
+    {
+      "char": "씬",
+      "codepoint": 50476,
+      "hex": "U+C52C",
+      "count": 1640069,
+      "frequency": 1.4236829816136812e-05,
+      "tier": "common"
+    },
+    {
+      "char": "줍",
+      "codepoint": 51469,
+      "hex": "U+C90D",
+      "count": 1695925,
+      "frequency": 1.4721695005473444e-05,
+      "tier": "common"
+    },
+    {
+      "char": "脸",
+      "codepoint": 33080,
+      "hex": "U+8138",
+      "count": 3081605,
+      "frequency": 2.6750268400632096e-05,
+      "tier": "common"
+    },
+    {
+      "char": "迫",
+      "codepoint": 36843,
+      "hex": "U+8FEB",
+      "count": 2298713,
+      "frequency": 1.9954273739178842e-05,
+      "tier": "common"
+    },
+    {
+      "char": "许",
+      "codepoint": 35768,
+      "hex": "U+8BB8",
+      "count": 5455241,
+      "frequency": 4.73549208740681e-05,
+      "tier": "common"
+    },
+    {
+      "char": "締",
+      "codepoint": 32224,
+      "hex": "U+7DE0",
+      "count": 2003556,
+      "frequency": 1.7392125452709495e-05,
+      "tier": "common"
+    },
+    {
+      "char": "什",
+      "codepoint": 20160,
+      "hex": "U+4EC0",
+      "count": 10457598,
+      "frequency": 9.077852395940214e-05,
+      "tier": "common"
+    },
+    {
+      "char": "计",
+      "codepoint": 35745,
+      "hex": "U+8BA1",
+      "count": 13437658,
+      "frequency": 0.00011664731793201955,
+      "tier": "common"
+    },
+    {
+      "char": "녕",
+      "codepoint": 45397,
+      "hex": "U+B155",
+      "count": 2084565,
+      "frequency": 1.8095334492436132e-05,
+      "tier": "common"
+    },
+    {
+      "char": "检",
+      "codepoint": 26816,
+      "hex": "U+68C0",
+      "count": 4653539,
+      "frequency": 4.0395643589236485e-05,
+      "tier": "common"
+    },
+    {
+      "char": "腐",
+      "codepoint": 33104,
+      "hex": "U+8150",
+      "count": 1853091,
+      "frequency": 1.60859946751111e-05,
+      "tier": "common"
+    },
+    {
+      "char": "换",
+      "codepoint": 25442,
+      "hex": "U+6362",
+      "count": 3791806,
+      "frequency": 3.291525949079366e-05,
+      "tier": "common"
+    },
+    {
+      "char": "标",
+      "codepoint": 26631,
+      "hex": "U+6807",
+      "count": 10059284,
+      "frequency": 8.732090807166526e-05,
+      "tier": "common"
+    },
+    {
+      "char": "鼓",
+      "codepoint": 40723,
+      "hex": "U+9F13",
+      "count": 1711300,
+      "frequency": 1.485515966971812e-05,
+      "tier": "common"
+    },
+    {
+      "char": "董",
+      "codepoint": 33891,
+      "hex": "U+8463",
+      "count": 1536446,
+      "frequency": 1.3337317041956247e-05,
+      "tier": "common"
+    },
+    {
+      "char": "딸",
+      "codepoint": 46392,
+      "hex": "U+B538",
+      "count": 1687146,
+      "frequency": 1.4645487767268304e-05,
+      "tier": "common"
+    },
+    {
+      "char": "党",
+      "codepoint": 20826,
+      "hex": "U+515A",
+      "count": 8260979,
+      "frequency": 7.171049031332223e-05,
+      "tier": "common"
+    },
+    {
+      "char": "羊",
+      "codepoint": 32650,
+      "hex": "U+7F8A",
+      "count": 1576205,
+      "frequency": 1.3682450153221556e-05,
+      "tier": "common"
+    },
+    {
+      "char": "旨",
+      "codepoint": 26088,
+      "hex": "U+65E8",
+      "count": 1562952,
+      "frequency": 1.3567405782799786e-05,
+      "tier": "common"
+    },
+    {
+      "char": "聚",
+      "codepoint": 32858,
+      "hex": "U+805A",
+      "count": 2703164,
+      "frequency": 2.3465162644442185e-05,
+      "tier": "common"
+    },
+    {
+      "char": "몬",
+      "codepoint": 47788,
+      "hex": "U+BAAC",
+      "count": 2163320,
+      "frequency": 1.8778977395368788e-05,
+      "tier": "common"
+    },
+    {
+      "char": "饮",
+      "codepoint": 39278,
+      "hex": "U+996E",
+      "count": 1739722,
+      "frequency": 1.5101880494899403e-05,
+      "tier": "common"
+    },
+    {
+      "char": "束",
+      "codepoint": 26463,
+      "hex": "U+675F",
+      "count": 3066203,
+      "frequency": 2.6616569359416063e-05,
+      "tier": "common"
+    },
+    {
+      "char": "觉",
+      "codepoint": 35273,
+      "hex": "U+89C9",
+      "count": 6313072,
+      "frequency": 5.480143315983563e-05,
+      "tier": "common"
+    },
+    {
+      "char": "卖",
+      "codepoint": 21334,
+      "hex": "U+5356",
+      "count": 3021652,
+      "frequency": 2.622983867604926e-05,
+      "tier": "common"
+    },
+    {
+      "char": "穴",
+      "codepoint": 31348,
+      "hex": "U+7A74",
+      "count": 3142439,
+      "frequency": 2.7278345758984014e-05,
+      "tier": "common"
+    },
+    {
+      "char": "哪",
+      "codepoint": 21738,
+      "hex": "U+54EA",
+      "count": 5031714,
+      "frequency": 4.36784402982271e-05,
+      "tier": "common"
+    },
+    {
+      "char": "搜",
+      "codepoint": 25628,
+      "hex": "U+641C",
+      "count": 2069782,
+      "frequency": 1.796700876030416e-05,
+      "tier": "common"
+    },
+    {
+      "char": "萏",
+      "codepoint": 33807,
+      "hex": "U+840F",
+      "count": 1271,
+      "frequency": 1.1033078910893316e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "혉",
+      "codepoint": 54793,
+      "hex": "U+D609",
+      "count": 186,
+      "frequency": 1.6145969137892657e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "逿",
+      "codepoint": 36927,
+      "hex": "U+903F",
+      "count": 30,
+      "frequency": 2.604188570627848e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "롑",
+      "codepoint": 47185,
+      "hex": "U+B851",
+      "count": 423,
+      "frequency": 3.6719058845852655e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "瓲",
+      "codepoint": 29938,
+      "hex": "U+74F2",
+      "count": 24,
+      "frequency": 2.0833508565022784e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "腑",
+      "codepoint": 33105,
+      "hex": "U+8151",
+      "count": 108661,
+      "frequency": 9.432457809099753e-07,
+      "tier": "uncommon"
+    },
+    {
+      "char": "띅",
+      "codepoint": 46917,
+      "hex": "U+B745",
+      "count": 198,
+      "frequency": 1.7187644566143795e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "舼",
+      "codepoint": 33340,
+      "hex": "U+823C",
+      "count": 13,
+      "frequency": 1.1284817139387341e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "伅",
+      "codepoint": 20229,
+      "hex": "U+4F05",
+      "count": 315,
+      "frequency": 2.73439799915924e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "傰",
+      "codepoint": 20656,
+      "hex": "U+50B0",
+      "count": 12,
+      "frequency": 1.0416754282511392e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "壼",
+      "codepoint": 22780,
+      "hex": "U+58FC",
+      "count": 1495,
+      "frequency": 1.2977539710295442e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "橩",
+      "codepoint": 27241,
+      "hex": "U+6A69",
+      "count": 2,
+      "frequency": 1.7361257137518987e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "딒",
+      "codepoint": 46354,
+      "hex": "U+B512",
+      "count": 184,
+      "frequency": 1.5972356566517466e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ꄂ",
+      "codepoint": 41218,
+      "hex": "U+A102",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "uncommon"
+    },
+    {
+      "char": "踑",
+      "codepoint": 36369,
+      "hex": "U+8E11",
+      "count": 12,
+      "frequency": 1.0416754282511392e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "Ʝ",
+      "codepoint": 42930,
+      "hex": "U+A7B2",
+      "count": 2,
+      "frequency": 1.7361257137518987e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ڐ",
+      "codepoint": 1680,
+      "hex": "U+0690",
+      "count": 249,
+      "frequency": 2.1614765136211136e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "嘕",
+      "codepoint": 22037,
+      "hex": "U+5615",
+      "count": 462,
+      "frequency": 4.010450398766886e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ੜ",
+      "codepoint": 2652,
+      "hex": "U+0A5C",
+      "count": 74,
+      "frequency": 6.423665140882024e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ড",
+      "codepoint": 2465,
+      "hex": "U+09A1",
+      "count": 402,
+      "frequency": 3.489612684641316e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ꂚ",
+      "codepoint": 41114,
+      "hex": "U+A09A",
+      "count": 7,
+      "frequency": 6.076439998131644e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "⣇",
+      "codepoint": 10439,
+      "hex": "U+28C7",
+      "count": 8,
+      "frequency": 6.944502855007595e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "箔",
+      "codepoint": 31636,
+      "hex": "U+7B94",
+      "count": 122487,
+      "frequency": 1.063264151501644e-06,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㥃",
+      "codepoint": 14659,
+      "hex": "U+3943",
+      "count": 3,
+      "frequency": 2.604188570627848e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "휶",
+      "codepoint": 55094,
+      "hex": "U+D736",
+      "count": 167,
+      "frequency": 1.4496649709828353e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ߖ",
+      "codepoint": 2006,
+      "hex": "U+07D6",
+      "count": 16,
+      "frequency": 1.388900571001519e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "辕",
+      "codepoint": 36757,
+      "hex": "U+8F95",
+      "count": 49100,
+      "frequency": 4.262188627260911e-07,
+      "tier": "uncommon"
+    },
+    {
+      "char": "耑",
+      "codepoint": 32785,
+      "hex": "U+8011",
+      "count": 1258,
+      "frequency": 1.0920230739499443e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䓬",
+      "codepoint": 17644,
+      "hex": "U+44EC",
+      "count": 89,
+      "frequency": 7.725759426195949e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "⺌",
+      "codepoint": 11916,
+      "hex": "U+2E8C",
+      "count": 180,
+      "frequency": 1.5625131423767086e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "셷",
+      "codepoint": 49527,
+      "hex": "U+C177",
+      "count": 207,
+      "frequency": 1.796890113733215e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "澍",
+      "codepoint": 28557,
+      "hex": "U+6F8D",
+      "count": 8649,
+      "frequency": 7.507875649120086e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "먍",
+      "codepoint": 47629,
+      "hex": "U+BA0D",
+      "count": 207,
+      "frequency": 1.796890113733215e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䔵",
+      "codepoint": 17717,
+      "hex": "U+4535",
+      "count": 4,
+      "frequency": 3.4722514275037975e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "歿",
+      "codepoint": 27519,
+      "hex": "U+6B7F",
+      "count": 3843,
+      "frequency": 3.3359655589742734e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "嫘",
+      "codepoint": 23256,
+      "hex": "U+5AD8",
+      "count": 3019,
+      "frequency": 2.620681764908491e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㑔",
+      "codepoint": 13396,
+      "hex": "U+3454",
+      "count": 16,
+      "frequency": 1.388900571001519e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "☯",
+      "codepoint": 9775,
+      "hex": "U+262F",
+      "count": 5411,
+      "frequency": 4.697088118555762e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㐲",
+      "codepoint": 13362,
+      "hex": "U+3432",
+      "count": 8,
+      "frequency": 6.944502855007595e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "廡",
+      "codepoint": 24289,
+      "hex": "U+5EE1",
+      "count": 848,
+      "frequency": 7.36117302630805e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "॰",
+      "codepoint": 2416,
+      "hex": "U+0970",
+      "count": 791,
+      "frequency": 6.866377197888759e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䇐",
+      "codepoint": 16848,
+      "hex": "U+41D0",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "uncommon"
+    },
+    {
+      "char": "抁",
+      "codepoint": 25217,
+      "hex": "U+6281",
+      "count": 19,
+      "frequency": 1.6493194280643036e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㘈",
+      "codepoint": 13832,
+      "hex": "U+3608",
+      "count": 6,
+      "frequency": 5.208377141255696e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "筳",
+      "codepoint": 31603,
+      "hex": "U+7B73",
+      "count": 383,
+      "frequency": 3.3246807418348857e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "춲",
+      "codepoint": 52658,
+      "hex": "U+CDB2",
+      "count": 197,
+      "frequency": 1.71008382804562e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "鉙",
+      "codepoint": 37465,
+      "hex": "U+9259",
+      "count": 8,
+      "frequency": 6.944502855007595e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䬷",
+      "codepoint": 19255,
+      "hex": "U+4B37",
+      "count": 2,
+      "frequency": 1.7361257137518987e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "趥",
+      "codepoint": 36261,
+      "hex": "U+8DA5",
+      "count": 35,
+      "frequency": 3.0382199990658226e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "覂",
+      "codepoint": 35202,
+      "hex": "U+8982",
+      "count": 228,
+      "frequency": 1.9791833136771643e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "隚",
+      "codepoint": 38554,
+      "hex": "U+969A",
+      "count": 7,
+      "frequency": 6.076439998131644e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "먞",
+      "codepoint": 47646,
+      "hex": "U+BA1E",
+      "count": 245,
+      "frequency": 2.1267539993460756e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "겺",
+      "codepoint": 44218,
+      "hex": "U+ACBA",
+      "count": 178,
+      "frequency": 1.5451518852391898e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "麜",
+      "codepoint": 40604,
+      "hex": "U+9E9C",
+      "count": 49,
+      "frequency": 4.253507998692152e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㩂",
+      "codepoint": 14914,
+      "hex": "U+3A42",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "uncommon"
+    },
+    {
+      "char": "扊",
+      "codepoint": 25162,
+      "hex": "U+624A",
+      "count": 75,
+      "frequency": 6.510471426569619e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ᜎ",
+      "codepoint": 5902,
+      "hex": "U+170E",
+      "count": 29,
+      "frequency": 2.517382284940253e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ᬔ",
+      "codepoint": 6932,
+      "hex": "U+1B14",
+      "count": 10,
+      "frequency": 8.680628568759493e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "Ⱖ",
+      "codepoint": 11302,
+      "hex": "U+2C26",
+      "count": 25,
+      "frequency": 2.1701571421898732e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "➲",
+      "codepoint": 10162,
+      "hex": "U+27B2",
+      "count": 971,
+      "frequency": 8.428890340265468e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "휚",
+      "codepoint": 55066,
+      "hex": "U+D71A",
+      "count": 204,
+      "frequency": 1.7708482280269365e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "껢",
+      "codepoint": 44770,
+      "hex": "U+AEE2",
+      "count": 216,
+      "frequency": 1.8750157708520506e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "鳟",
+      "codepoint": 40159,
+      "hex": "U+9CDF",
+      "count": 6716,
+      "frequency": 5.8299101467788756e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "龎",
+      "codepoint": 40846,
+      "hex": "U+9F8E",
+      "count": 139,
+      "frequency": 1.2066073710575695e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "δ",
+      "codepoint": 948,
+      "hex": "U+03B4",
+      "count": 45338,
+      "frequency": 3.935623380504179e-07,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㶯",
+      "codepoint": 15791,
+      "hex": "U+3DAF",
+      "count": 3,
+      "frequency": 2.604188570627848e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ಋ",
+      "codepoint": 3211,
+      "hex": "U+0C8B",
+      "count": 5,
+      "frequency": 4.340314284379747e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "긦",
+      "codepoint": 44582,
+      "hex": "U+AE26",
+      "count": 212,
+      "frequency": 1.8402932565770126e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ꊃ",
+      "codepoint": 41603,
+      "hex": "U+A283",
+      "count": 3,
+      "frequency": 2.604188570627848e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "쩩",
+      "codepoint": 51817,
+      "hex": "U+CA69",
+      "count": 219,
+      "frequency": 1.901057656558329e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "껄",
+      "codepoint": 44740,
+      "hex": "U+AEC4",
+      "count": 89684,
+      "frequency": 7.785134925606264e-07,
+      "tier": "uncommon"
+    },
+    {
+      "char": "髂",
+      "codepoint": 39618,
+      "hex": "U+9AC2",
+      "count": 5078,
+      "frequency": 4.408023187216071e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ⰻ",
+      "codepoint": 11323,
+      "hex": "U+2C3B",
+      "count": 2,
+      "frequency": 1.7361257137518987e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "珲",
+      "codepoint": 29682,
+      "hex": "U+73F2",
+      "count": 8360,
+      "frequency": 7.257005483482936e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "쫞",
+      "codepoint": 51934,
+      "hex": "U+CADE",
+      "count": 213,
+      "frequency": 1.848973885145772e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "饴",
+      "codepoint": 39284,
+      "hex": "U+9974",
+      "count": 5869,
+      "frequency": 5.094660907004946e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "铰",
+      "codepoint": 38128,
+      "hex": "U+94F0",
+      "count": 27532,
+      "frequency": 2.3899506575508636e-07,
+      "tier": "uncommon"
+    },
+    {
+      "char": "셄",
+      "codepoint": 49476,
+      "hex": "U+C144",
+      "count": 158,
+      "frequency": 1.371539313864e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "髖",
+      "codepoint": 39638,
+      "hex": "U+9AD6",
+      "count": 5097,
+      "frequency": 4.424516381496714e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㚈",
+      "codepoint": 13960,
+      "hex": "U+3688",
+      "count": 11,
+      "frequency": 9.548691425635443e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "뼋",
+      "codepoint": 48907,
+      "hex": "U+BF0B",
+      "count": 208,
+      "frequency": 1.8055707423019746e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "잷",
+      "codepoint": 51127,
+      "hex": "U+C7B7",
+      "count": 192,
+      "frequency": 1.6666806852018227e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "籅",
+      "codepoint": 31813,
+      "hex": "U+7C45",
+      "count": 16,
+      "frequency": 1.388900571001519e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "꾝",
+      "codepoint": 44957,
+      "hex": "U+AF9D",
+      "count": 225,
+      "frequency": 1.953141427970886e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ㆭ",
+      "codepoint": 12717,
+      "hex": "U+31AD",
+      "count": 7,
+      "frequency": 6.076439998131644e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "喦",
+      "codepoint": 21926,
+      "hex": "U+55A6",
+      "count": 717,
+      "frequency": 6.224010683800556e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ྏ",
+      "codepoint": 3983,
+      "hex": "U+0F8F",
+      "count": 4,
+      "frequency": 3.4722514275037975e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㭮",
+      "codepoint": 15214,
+      "hex": "U+3B6E",
+      "count": 4,
+      "frequency": 3.4722514275037975e-11,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ఉ",
+      "codepoint": 3081,
+      "hex": "U+0C09",
+      "count": 19,
+      "frequency": 1.6493194280643036e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "욑",
+      "codepoint": 50833,
+      "hex": "U+C691",
+      "count": 206,
+      "frequency": 1.7882094851644556e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "圲",
+      "codepoint": 22322,
+      "hex": "U+5732",
+      "count": 19,
+      "frequency": 1.6493194280643036e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "缼",
+      "codepoint": 32572,
+      "hex": "U+7F3C",
+      "count": 43,
+      "frequency": 3.732670284566582e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "彶",
+      "codepoint": 24438,
+      "hex": "U+5F76",
+      "count": 272,
+      "frequency": 2.361130970702582e-09,
+      "tier": "uncommon"
+    },
+    {
+      "char": "蓍",
+      "codepoint": 33997,
+      "hex": "U+84CD",
+      "count": 2265,
+      "frequency": 1.9661623708240253e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "ľ",
+      "codepoint": 318,
+      "hex": "U+013E",
+      "count": 2038,
+      "frequency": 1.7691121023131846e-08,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䄿",
+      "codepoint": 16703,
+      "hex": "U+413F",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䧙",
+      "codepoint": 18905,
+      "hex": "U+49D9",
+      "count": 32,
+      "frequency": 2.777801142003038e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "㓛",
+      "codepoint": 13531,
+      "hex": "U+34DB",
+      "count": 103,
+      "frequency": 8.941047425822278e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "庿",
+      "codepoint": 24255,
+      "hex": "U+5EBF",
+      "count": 35,
+      "frequency": 3.0382199990658226e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "Ԑ",
+      "codepoint": 1296,
+      "hex": "U+0510",
+      "count": 41,
+      "frequency": 3.559057713191392e-10,
+      "tier": "uncommon"
+    },
+    {
+      "char": "䥚",
+      "codepoint": 18778,
+      "hex": "U+495A",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䳥",
+      "codepoint": 19685,
+      "hex": "U+4CE5",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ૠ",
+      "codepoint": 2784,
+      "hex": "U+0AE0",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䳋",
+      "codepoint": 19659,
+      "hex": "U+4CCB",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䱬",
+      "codepoint": 19564,
+      "hex": "U+4C6C",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䟈",
+      "codepoint": 18376,
+      "hex": "U+47C8",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䰈",
+      "codepoint": 19464,
+      "hex": "U+4C08",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䱆",
+      "codepoint": 19526,
+      "hex": "U+4C46",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䢗",
+      "codepoint": 18583,
+      "hex": "U+4897",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮃",
+      "codepoint": 19331,
+      "hex": "U+4B83",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䴛",
+      "codepoint": 19739,
+      "hex": "U+4D1B",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䤪",
+      "codepoint": 18730,
+      "hex": "U+492A",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䢆",
+      "codepoint": 18566,
+      "hex": "U+4886",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䫺",
+      "codepoint": 19194,
+      "hex": "U+4AFA",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䩆",
+      "codepoint": 19014,
+      "hex": "U+4A46",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䥞",
+      "codepoint": 18782,
+      "hex": "U+495E",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꔰ",
+      "codepoint": 42288,
+      "hex": "U+A530",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䱕",
+      "codepoint": 19541,
+      "hex": "U+4C55",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䳓",
+      "codepoint": 19667,
+      "hex": "U+4CD3",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮬",
+      "codepoint": 19372,
+      "hex": "U+4BAC",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䤅",
+      "codepoint": 18693,
+      "hex": "U+4905",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䳎",
+      "codepoint": 19662,
+      "hex": "U+4CCE",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䧗",
+      "codepoint": 18903,
+      "hex": "U+49D7",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "⟘",
+      "codepoint": 10200,
+      "hex": "U+27D8",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䵦",
+      "codepoint": 19814,
+      "hex": "U+4D66",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䵺",
+      "codepoint": 19834,
+      "hex": "U+4D7A",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䞨",
+      "codepoint": 18344,
+      "hex": "U+47A8",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䤓",
+      "codepoint": 18707,
+      "hex": "U+4913",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꉭ",
+      "codepoint": 41581,
+      "hex": "U+A26D",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䝵",
+      "codepoint": 18293,
+      "hex": "U+4775",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꇩ",
+      "codepoint": 41449,
+      "hex": "U+A1E9",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䧀",
+      "codepoint": 18880,
+      "hex": "U+49C0",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䩽",
+      "codepoint": 19069,
+      "hex": "U+4A7D",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䥛",
+      "codepoint": 18779,
+      "hex": "U+495B",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䞺",
+      "codepoint": 18362,
+      "hex": "U+47BA",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䣹",
+      "codepoint": 18681,
+      "hex": "U+48F9",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "㒴",
+      "codepoint": 13492,
+      "hex": "U+34B4",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮸",
+      "codepoint": 19384,
+      "hex": "U+4BB8",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꅝ",
+      "codepoint": 41309,
+      "hex": "U+A15D",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䴂",
+      "codepoint": 19714,
+      "hex": "U+4D02",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䦿",
+      "codepoint": 18879,
+      "hex": "U+49BF",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䣻",
+      "codepoint": 18683,
+      "hex": "U+48FB",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䱼",
+      "codepoint": 19580,
+      "hex": "U+4C7C",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䬺",
+      "codepoint": 19258,
+      "hex": "U+4B3A",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䩴",
+      "codepoint": 19060,
+      "hex": "U+4A74",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꪫ",
+      "codepoint": 43691,
+      "hex": "U+AAAB",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "㓧",
+      "codepoint": 13543,
+      "hex": "U+34E7",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䱡",
+      "codepoint": 19553,
+      "hex": "U+4C61",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䫰",
+      "codepoint": 19184,
+      "hex": "U+4AF0",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䡗",
+      "codepoint": 18519,
+      "hex": "U+4857",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䥘",
+      "codepoint": 18776,
+      "hex": "U+4958",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䡌",
+      "codepoint": 18508,
+      "hex": "U+484C",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䤮",
+      "codepoint": 18734,
+      "hex": "U+492E",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䴺",
+      "codepoint": 19770,
+      "hex": "U+4D3A",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮲",
+      "codepoint": 19378,
+      "hex": "U+4BB2",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮒",
+      "codepoint": 19346,
+      "hex": "U+4B92",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䥔",
+      "codepoint": 18772,
+      "hex": "U+4954",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䴽",
+      "codepoint": 19773,
+      "hex": "U+4D3D",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䯗",
+      "codepoint": 19415,
+      "hex": "U+4BD7",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䪲",
+      "codepoint": 19122,
+      "hex": "U+4AB2",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꀔ",
+      "codepoint": 40980,
+      "hex": "U+A014",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䯖",
+      "codepoint": 19414,
+      "hex": "U+4BD6",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䩹",
+      "codepoint": 19065,
+      "hex": "U+4A79",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䨣",
+      "codepoint": 18979,
+      "hex": "U+4A23",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꋘ",
+      "codepoint": 41688,
+      "hex": "U+A2D8",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䡋",
+      "codepoint": 18507,
+      "hex": "U+484B",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䭐",
+      "codepoint": 19280,
+      "hex": "U+4B50",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䬱",
+      "codepoint": 19249,
+      "hex": "U+4B31",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䟰",
+      "codepoint": 18416,
+      "hex": "U+47F0",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䵎",
+      "codepoint": 19790,
+      "hex": "U+4D4E",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䞜",
+      "codepoint": 18332,
+      "hex": "U+479C",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ቾ",
+      "codepoint": 4734,
+      "hex": "U+127E",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䠗",
+      "codepoint": 18455,
+      "hex": "U+4817",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䡴",
+      "codepoint": 18548,
+      "hex": "U+4874",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䰻",
+      "codepoint": 19515,
+      "hex": "U+4C3B",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䡽",
+      "codepoint": 18557,
+      "hex": "U+487D",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䶙",
+      "codepoint": 19865,
+      "hex": "U+4D99",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䳆",
+      "codepoint": 19654,
+      "hex": "U+4CC6",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䪟",
+      "codepoint": 19103,
+      "hex": "U+4A9F",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䯮",
+      "codepoint": 19438,
+      "hex": "U+4BEE",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䞸",
+      "codepoint": 18360,
+      "hex": "U+47B8",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䩍",
+      "codepoint": 19021,
+      "hex": "U+4A4D",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䩈",
+      "codepoint": 19016,
+      "hex": "U+4A48",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "ꎚ",
+      "codepoint": 41882,
+      "hex": "U+A39A",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䬇",
+      "codepoint": 19207,
+      "hex": "U+4B07",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䭵",
+      "codepoint": 19317,
+      "hex": "U+4B75",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䤵",
+      "codepoint": 18741,
+      "hex": "U+4935",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮦",
+      "codepoint": 19366,
+      "hex": "U+4BA6",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "㐏",
+      "codepoint": 13327,
+      "hex": "U+340F",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䝁",
+      "codepoint": 18241,
+      "hex": "U+4741",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "⨫",
+      "codepoint": 10795,
+      "hex": "U+2A2B",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䴆",
+      "codepoint": 19718,
+      "hex": "U+4D06",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䠢",
+      "codepoint": 18466,
+      "hex": "U+4822",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䳊",
+      "codepoint": 19658,
+      "hex": "U+4CCA",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䮌",
+      "codepoint": 19340,
+      "hex": "U+4B8C",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䵇",
+      "codepoint": 19783,
+      "hex": "U+4D47",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "㓌",
+      "codepoint": 13516,
+      "hex": "U+34CC",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䵨",
+      "codepoint": 19816,
+      "hex": "U+4D68",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䱙",
+      "codepoint": 19545,
+      "hex": "U+4C59",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "䧼",
+      "codepoint": 18940,
+      "hex": "U+49FC",
+      "count": 1,
+      "frequency": 8.680628568759494e-12,
+      "tier": "rare"
+    },
+    {
+      "char": "害",
+      "codepoint": 23475,
+      "hex": "U+5BB3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "博",
+      "codepoint": 21338,
+      "hex": "U+535A",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "먼",
+      "codepoint": 47676,
+      "hex": "U+BA3C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "次",
+      "codepoint": 27425,
+      "hex": "U+6B21",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "不",
+      "codepoint": 19981,
+      "hex": "U+4E0D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "頼",
+      "codepoint": 38972,
+      "hex": "U+983C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "납",
+      "codepoint": 45225,
+      "hex": "U+B0A9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "최",
+      "codepoint": 52572,
+      "hex": "U+CD5C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "冷",
+      "codepoint": 20919,
+      "hex": "U+51B7",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "立",
+      "codepoint": 31435,
+      "hex": "U+7ACB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "더",
+      "codepoint": 45908,
+      "hex": "U+B354",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "지",
+      "codepoint": 51648,
+      "hex": "U+C9C0",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "冬",
+      "codepoint": 20908,
+      "hex": "U+51AC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "乗",
+      "codepoint": 20055,
+      "hex": "U+4E57",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "季",
+      "codepoint": 23395,
+      "hex": "U+5B63",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "콘",
+      "codepoint": 53080,
+      "hex": "U+CF58",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "軽",
+      "codepoint": 36605,
+      "hex": "U+8EFD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "까",
+      "codepoint": 44620,
+      "hex": "U+AE4C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "流",
+      "codepoint": 27969,
+      "hex": "U+6D41",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "며",
+      "codepoint": 47728,
+      "hex": "U+BA70",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "鵍",
+      "codepoint": 40269,
+      "hex": "U+9D4D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "約",
+      "codepoint": 32004,
+      "hex": "U+7D04",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "필",
+      "codepoint": 54596,
+      "hex": "U+D544",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "있",
+      "codepoint": 51080,
+      "hex": "U+C788",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "孂",
+      "codepoint": 23362,
+      "hex": "U+5B42",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "就",
+      "codepoint": 23601,
+      "hex": "U+5C31",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "份",
+      "codepoint": 20221,
+      "hex": "U+4EFD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "난",
+      "codepoint": 45212,
+      "hex": "U+B09C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "鿰",
+      "codepoint": 40944,
+      "hex": "U+9FF0",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "完",
+      "codepoint": 23436,
+      "hex": "U+5B8C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "搵",
+      "codepoint": 25653,
+      "hex": "U+6435",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "항",
+      "codepoint": 54637,
+      "hex": "U+D56D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "計",
+      "codepoint": 35336,
+      "hex": "U+8A08",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "느",
+      "codepoint": 45712,
+      "hex": "U+B290",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "益",
+      "codepoint": 30410,
+      "hex": "U+76CA",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "京",
+      "codepoint": 20140,
+      "hex": "U+4EAC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "럼",
+      "codepoint": 47100,
+      "hex": "U+B7FC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "早",
+      "codepoint": 26089,
+      "hex": "U+65E9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "際",
+      "codepoint": 38555,
+      "hex": "U+969B",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "힤",
+      "codepoint": 55204,
+      "hex": "U+D7A4",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "도",
+      "codepoint": 46020,
+      "hex": "U+B3C4",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "変",
+      "codepoint": 22793,
+      "hex": "U+5909",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "낸",
+      "codepoint": 45240,
+      "hex": "U+B0B8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "韓",
+      "codepoint": 38867,
+      "hex": "U+97D3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "용",
+      "codepoint": 50857,
+      "hex": "U+C6A9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "扱",
+      "codepoint": 25201,
+      "hex": "U+6271",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "証",
+      "codepoint": 35388,
+      "hex": "U+8A3C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "잔",
+      "codepoint": 51092,
+      "hex": "U+C794",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "將",
+      "codepoint": 23559,
+      "hex": "U+5C07",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "調",
+      "codepoint": 35519,
+      "hex": "U+8ABF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "少",
+      "codepoint": 23569,
+      "hex": "U+5C11",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "慢",
+      "codepoint": 24930,
+      "hex": "U+6162",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "부",
+      "codepoint": 48512,
+      "hex": "U+BD80",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "母",
+      "codepoint": 27597,
+      "hex": "U+6BCD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "러",
+      "codepoint": 47084,
+      "hex": "U+B7EC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "로",
+      "codepoint": 47196,
+      "hex": "U+B85C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "농",
+      "codepoint": 45453,
+      "hex": "U+B18D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "굴",
+      "codepoint": 44404,
+      "hex": "U+AD74",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "續",
+      "codepoint": 32396,
+      "hex": "U+7E8C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "山",
+      "codepoint": 23665,
+      "hex": "U+5C71",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "관",
+      "codepoint": 44288,
+      "hex": "U+AD00",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "坐",
+      "codepoint": 22352,
+      "hex": "U+5750",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "晒",
+      "codepoint": 26194,
+      "hex": "U+6652",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "記",
+      "codepoint": 35352,
+      "hex": "U+8A18",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "후",
+      "codepoint": 54980,
+      "hex": "U+D6C4",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "値",
+      "codepoint": 20516,
+      "hex": "U+5024",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "면",
+      "codepoint": 47732,
+      "hex": "U+BA74",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "약",
+      "codepoint": 50557,
+      "hex": "U+C57D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "논",
+      "codepoint": 45436,
+      "hex": "U+B17C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "내",
+      "codepoint": 45236,
+      "hex": "U+B0B4",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "宣",
+      "codepoint": 23459,
+      "hex": "U+5BA3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "친",
+      "codepoint": 52828,
+      "hex": "U+CE5C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "세",
+      "codepoint": 49464,
+      "hex": "U+C138",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "융",
+      "codepoint": 50997,
+      "hex": "U+C735",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "십",
+      "codepoint": 49901,
+      "hex": "U+C2ED",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "牌",
+      "codepoint": 29260,
+      "hex": "U+724C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "힮",
+      "codepoint": 55214,
+      "hex": "U+D7AE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "戸",
+      "codepoint": 25144,
+      "hex": "U+6238",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "世",
+      "codepoint": 19990,
+      "hex": "U+4E16",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "갑",
+      "codepoint": 44049,
+      "hex": "U+AC11",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "천",
+      "codepoint": 52380,
+      "hex": "U+CC9C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "균",
+      "codepoint": 44512,
+      "hex": "U+ADE0",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "阪",
+      "codepoint": 38442,
+      "hex": "U+962A",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "維",
+      "codepoint": 32173,
+      "hex": "U+7DAD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "覧",
+      "codepoint": 35239,
+      "hex": "U+89A7",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "먹",
+      "codepoint": 47673,
+      "hex": "U+BA39",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "퍼",
+      "codepoint": 54140,
+      "hex": "U+D37C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "配",
+      "codepoint": 37197,
+      "hex": "U+914D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "陣",
+      "codepoint": 38499,
+      "hex": "U+9663",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "婆",
+      "codepoint": 23110,
+      "hex": "U+5A46",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "억",
+      "codepoint": 50613,
+      "hex": "U+C5B5",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "힘",
+      "codepoint": 55192,
+      "hex": "U+D798",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "힩",
+      "codepoint": 55209,
+      "hex": "U+D7A9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "걸",
+      "codepoint": 44152,
+      "hex": "U+AC78",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "편",
+      "codepoint": 54200,
+      "hex": "U+D3B8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "離",
+      "codepoint": 38626,
+      "hex": "U+96E2",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "講",
+      "codepoint": 35611,
+      "hex": "U+8B1B",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "쟁",
+      "codepoint": 51137,
+      "hex": "U+C7C1",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "鿶",
+      "codepoint": 40950,
+      "hex": "U+9FF6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    },
+    {
+      "char": "피",
+      "codepoint": 54588,
+      "hex": "U+D53C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen"
+    }
+  ]
+}

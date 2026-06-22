@@ -1,0 +1,1117 @@
+{
+  "description": "Unseen 3-byte CJK ideographs for Level 0 control experiment (139 characters)",
+  "char_frequencies": [
+    {
+      "char": "㐆",
+      "codepoint": 13318,
+      "hex": "U+3406",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐒",
+      "codepoint": 13330,
+      "hex": "U+3412",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐗",
+      "codepoint": 13335,
+      "hex": "U+3417",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐚",
+      "codepoint": 13338,
+      "hex": "U+341A",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐝",
+      "codepoint": 13341,
+      "hex": "U+341D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐞",
+      "codepoint": 13342,
+      "hex": "U+341E",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐭",
+      "codepoint": 13357,
+      "hex": "U+342D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐸",
+      "codepoint": 13368,
+      "hex": "U+3438",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㐿",
+      "codepoint": 13375,
+      "hex": "U+343F",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑂",
+      "codepoint": 13378,
+      "hex": "U+3442",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑄",
+      "codepoint": 13380,
+      "hex": "U+3444",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑈",
+      "codepoint": 13384,
+      "hex": "U+3448",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑍",
+      "codepoint": 13389,
+      "hex": "U+344D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑐",
+      "codepoint": 13392,
+      "hex": "U+3450",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑓",
+      "codepoint": 13395,
+      "hex": "U+3453",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑕",
+      "codepoint": 13397,
+      "hex": "U+3455",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑗",
+      "codepoint": 13399,
+      "hex": "U+3457",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑘",
+      "codepoint": 13400,
+      "hex": "U+3458",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑜",
+      "codepoint": 13404,
+      "hex": "U+345C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑟",
+      "codepoint": 13407,
+      "hex": "U+345F",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑥",
+      "codepoint": 13413,
+      "hex": "U+3465",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑦",
+      "codepoint": 13414,
+      "hex": "U+3466",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑵",
+      "codepoint": 13429,
+      "hex": "U+3475",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑶",
+      "codepoint": 13430,
+      "hex": "U+3476",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㑼",
+      "codepoint": 13436,
+      "hex": "U+347C",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒂",
+      "codepoint": 13442,
+      "hex": "U+3482",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒉",
+      "codepoint": 13449,
+      "hex": "U+3489",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒎",
+      "codepoint": 13454,
+      "hex": "U+348E",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒏",
+      "codepoint": 13455,
+      "hex": "U+348F",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒐",
+      "codepoint": 13456,
+      "hex": "U+3490",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒑",
+      "codepoint": 13457,
+      "hex": "U+3491",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒕",
+      "codepoint": 13461,
+      "hex": "U+3495",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒘",
+      "codepoint": 13464,
+      "hex": "U+3498",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒝",
+      "codepoint": 13469,
+      "hex": "U+349D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒩",
+      "codepoint": 13481,
+      "hex": "U+34A9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒪",
+      "codepoint": 13482,
+      "hex": "U+34AA",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒯",
+      "codepoint": 13487,
+      "hex": "U+34AF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒱",
+      "codepoint": 13489,
+      "hex": "U+34B1",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒶",
+      "codepoint": 13494,
+      "hex": "U+34B6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒻",
+      "codepoint": 13499,
+      "hex": "U+34BB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒽",
+      "codepoint": 13501,
+      "hex": "U+34BD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒾",
+      "codepoint": 13502,
+      "hex": "U+34BE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㒿",
+      "codepoint": 13503,
+      "hex": "U+34BF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓃",
+      "codepoint": 13507,
+      "hex": "U+34C3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓆",
+      "codepoint": 13510,
+      "hex": "U+34C6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓖",
+      "codepoint": 13526,
+      "hex": "U+34D6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓘",
+      "codepoint": 13528,
+      "hex": "U+34D8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓣",
+      "codepoint": 13539,
+      "hex": "U+34E3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓨",
+      "codepoint": 13544,
+      "hex": "U+34E8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓪",
+      "codepoint": 13546,
+      "hex": "U+34EA",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓯",
+      "codepoint": 13551,
+      "hex": "U+34EF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓲",
+      "codepoint": 13554,
+      "hex": "U+34F2",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓶",
+      "codepoint": 13558,
+      "hex": "U+34F6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓽",
+      "codepoint": 13565,
+      "hex": "U+34FD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㓿",
+      "codepoint": 13567,
+      "hex": "U+34FF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔁",
+      "codepoint": 13569,
+      "hex": "U+3501",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔄",
+      "codepoint": 13572,
+      "hex": "U+3504",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔇",
+      "codepoint": 13575,
+      "hex": "U+3507",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔍",
+      "codepoint": 13581,
+      "hex": "U+350D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔑",
+      "codepoint": 13585,
+      "hex": "U+3511",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔒",
+      "codepoint": 13586,
+      "hex": "U+3512",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔓",
+      "codepoint": 13587,
+      "hex": "U+3513",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔗",
+      "codepoint": 13591,
+      "hex": "U+3517",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔛",
+      "codepoint": 13595,
+      "hex": "U+351B",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㔝",
+      "codepoint": 13597,
+      "hex": "U+351D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㘥",
+      "codepoint": 13861,
+      "hex": "U+3625",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㡶",
+      "codepoint": 14454,
+      "hex": "U+3876",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "㽟",
+      "codepoint": 16223,
+      "hex": "U+3F5F",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䙒",
+      "codepoint": 18002,
+      "hex": "U+4652",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶶",
+      "codepoint": 19894,
+      "hex": "U+4DB6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶸",
+      "codepoint": 19896,
+      "hex": "U+4DB8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶹",
+      "codepoint": 19897,
+      "hex": "U+4DB9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶺",
+      "codepoint": 19898,
+      "hex": "U+4DBA",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶻",
+      "codepoint": 19899,
+      "hex": "U+4DBB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶽",
+      "codepoint": 19901,
+      "hex": "U+4DBD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "䶾",
+      "codepoint": 19902,
+      "hex": "U+4DBE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "剈",
+      "codepoint": 21064,
+      "hex": "U+5248",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "孂",
+      "codepoint": 23362,
+      "hex": "U+5B42",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "弞",
+      "codepoint": 24350,
+      "hex": "U+5F1E",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "檘",
+      "codepoint": 27288,
+      "hex": "U+6A98",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "瀈",
+      "codepoint": 28680,
+      "hex": "U+7008",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "焁",
+      "codepoint": 28929,
+      "hex": "U+7101",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "熪",
+      "codepoint": 29098,
+      "hex": "U+71AA",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "熫",
+      "codepoint": 29099,
+      "hex": "U+71AB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "燞",
+      "codepoint": 29150,
+      "hex": "U+71DE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "爑",
+      "codepoint": 29201,
+      "hex": "U+7211",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "絥",
+      "codepoint": 32101,
+      "hex": "U+7D65",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "蔅",
+      "codepoint": 34053,
+      "hex": "U+8505",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "謤",
+      "codepoint": 35620,
+      "hex": "U+8B24",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "躛",
+      "codepoint": 36507,
+      "hex": "U+8E9B",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "輡",
+      "codepoint": 36641,
+      "hex": "U+8F21",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鋢",
+      "codepoint": 37602,
+      "hex": "U+92E2",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鎎",
+      "codepoint": 37774,
+      "hex": "U+938E",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "颹",
+      "codepoint": 39097,
+      "hex": "U+98B9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "飷",
+      "codepoint": 39159,
+      "hex": "U+98F7",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "馩",
+      "codepoint": 39337,
+      "hex": "U+99A9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "駤",
+      "codepoint": 39396,
+      "hex": "U+99E4",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鳨",
+      "codepoint": 40168,
+      "hex": "U+9CE8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鵍",
+      "codepoint": 40269,
+      "hex": "U+9D4D",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鵧",
+      "codepoint": 40295,
+      "hex": "U+9D67",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鶈",
+      "codepoint": 40328,
+      "hex": "U+9D88",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鹶",
+      "codepoint": 40566,
+      "hex": "U+9E76",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿌",
+      "codepoint": 40908,
+      "hex": "U+9FCC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿎",
+      "codepoint": 40910,
+      "hex": "U+9FCE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿏",
+      "codepoint": 40911,
+      "hex": "U+9FCF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿐",
+      "codepoint": 40912,
+      "hex": "U+9FD0",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿑",
+      "codepoint": 40913,
+      "hex": "U+9FD1",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿒",
+      "codepoint": 40914,
+      "hex": "U+9FD2",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿓",
+      "codepoint": 40915,
+      "hex": "U+9FD3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿔",
+      "codepoint": 40916,
+      "hex": "U+9FD4",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿕",
+      "codepoint": 40917,
+      "hex": "U+9FD5",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿖",
+      "codepoint": 40918,
+      "hex": "U+9FD6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿗",
+      "codepoint": 40919,
+      "hex": "U+9FD7",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿘",
+      "codepoint": 40920,
+      "hex": "U+9FD8",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿙",
+      "codepoint": 40921,
+      "hex": "U+9FD9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿛",
+      "codepoint": 40923,
+      "hex": "U+9FDB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿜",
+      "codepoint": 40924,
+      "hex": "U+9FDC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿞",
+      "codepoint": 40926,
+      "hex": "U+9FDE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿟",
+      "codepoint": 40927,
+      "hex": "U+9FDF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿠",
+      "codepoint": 40928,
+      "hex": "U+9FE0",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿢",
+      "codepoint": 40930,
+      "hex": "U+9FE2",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿫",
+      "codepoint": 40939,
+      "hex": "U+9FEB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿬",
+      "codepoint": 40940,
+      "hex": "U+9FEC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿭",
+      "codepoint": 40941,
+      "hex": "U+9FED",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿮",
+      "codepoint": 40942,
+      "hex": "U+9FEE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿰",
+      "codepoint": 40944,
+      "hex": "U+9FF0",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿱",
+      "codepoint": 40945,
+      "hex": "U+9FF1",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿲",
+      "codepoint": 40946,
+      "hex": "U+9FF2",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿳",
+      "codepoint": 40947,
+      "hex": "U+9FF3",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿵",
+      "codepoint": 40949,
+      "hex": "U+9FF5",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿶",
+      "codepoint": 40950,
+      "hex": "U+9FF6",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿷",
+      "codepoint": 40951,
+      "hex": "U+9FF7",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿹",
+      "codepoint": 40953,
+      "hex": "U+9FF9",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿺",
+      "codepoint": 40954,
+      "hex": "U+9FFA",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿻",
+      "codepoint": 40955,
+      "hex": "U+9FFB",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿼",
+      "codepoint": 40956,
+      "hex": "U+9FFC",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿽",
+      "codepoint": 40957,
+      "hex": "U+9FFD",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿾",
+      "codepoint": 40958,
+      "hex": "U+9FFE",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    },
+    {
+      "char": "鿿",
+      "codepoint": 40959,
+      "hex": "U+9FFF",
+      "count": 0,
+      "frequency": 0.0,
+      "tier": "unseen_3b"
+    }
+  ]
+}
