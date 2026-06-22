@@ -1,0 +1,28 @@
+{
+  "name": "bytecanary",
+  "version": "0.1.0",
+  "description": "UTF-8 structural validity evaluation for byte-level language models",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "serve": "npx serve ."
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "license": "Apache-2.0",
+  "author": "Sangwhan Moon <innodb@gmail.com>",
+  "devDependencies": {
+    "typescript": "^5.5"
+  }
+}

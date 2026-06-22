@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ByteCanary — UTF-8 Structural Validity Evaluation</title>
+<style>
+  :root { --bg: #0d1117; --fg: #c9d1d9; --accent: #58a6ff; --green: #3fb950;
+           --red: #f85149; --yellow: #d29922; --border: #30363d; --card: #161b22; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+         background: var(--bg); color: var(--fg); padding: 2rem; line-height: 1.6; }
+  h1 { color: var(--accent); font-size: 1.4rem; margin-bottom: 0.5rem; }
+  h2 { color: var(--fg); font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  .subtitle { color: #8b949e; font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .controls { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+  button { background: var(--accent); color: var(--bg); border: none; padding: 0.5rem 1.2rem;
+           border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.85rem;
+           font-weight: 600; }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  button:hover:not(:disabled) { filter: brightness(1.15); }
+  button.secondary { background: var(--border); color: var(--fg); }
+  button.secondary:hover:not(:disabled) { background: #484f58; }
+  select, input[type=number] { background: var(--card); color: var(--fg); border: 1px solid var(--border);
+           padding: 0.4rem 0.6rem; border-radius: 6px; font-family: inherit; font-size: 0.85rem; }
+  input[type=number] { width: 5rem; }
+  textarea { background: var(--card); color: var(--fg); border: 1px solid var(--border);
+             padding: 0.8rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;
+             width: 100%; resize: vertical; }
+  label { font-size: 0.8rem; color: #8b949e; }
+  .progress { background: var(--border); border-radius: 4px; height: 6px; margin: 0.5rem 0; overflow: hidden; }
+  .progress-bar { background: var(--accent); height: 100%; transition: width 0.2s; }
+  #status { font-size: 0.8rem; color: #8b949e; min-height: 1.2em; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+          padding: 1rem; margin-bottom: 1rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  th { text-align: left; color: #8b949e; font-weight: 500; padding: 0.4rem 0.6rem;
+       border-bottom: 1px solid var(--border); }
+  td { padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .good { color: var(--green); }
+  .warn { color: var(--yellow); }
+  .bad { color: var(--red); }
+  .char-cell { font-size: 1.2rem; }
+  .note { font-size: 0.75rem; color: #8b949e; margin-top: 1rem; padding: 0.8rem;
+          border-left: 3px solid var(--yellow); background: rgba(210,153,34,0.08); border-radius: 0 4px 4px 0; }
+  .note.info { border-left-color: var(--accent); background: rgba(88,166,255,0.08); }
+  #error { color: var(--red); font-size: 0.85rem; margin: 0.5rem 0; display: none; }
+  .mode-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .mode-tab { padding: 0.6rem 1.2rem; cursor: pointer; font-size: 0.85rem; border: none; background: none;
+              color: #8b949e; font-family: inherit; font-weight: 500;
+              border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .mode-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .mode-tab:hover { color: var(--fg); }
+  .mode-panel { display: none; }
+  .mode-panel.active { display: block; }
+  .tabs { display: flex; gap: 0; margin-bottom: -1px; }
+  .tab { padding: 0.5rem 1rem; cursor: pointer; font-size: 0.8rem; border: 1px solid transparent;
+         border-bottom: none; border-radius: 6px 6px 0 0; color: #8b949e; }
+  .tab.active { background: var(--card); border-color: var(--border); color: var(--fg); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .badge { display: inline-block; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 4px;
+           font-weight: 600; }
+  .badge-common { background: rgba(63,185,80,0.15); color: var(--green); }
+  .badge-uncommon { background: rgba(88,166,255,0.15); color: var(--accent); }
+  .badge-rare { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .badge-unseen { background: rgba(248,81,73,0.15); color: var(--red); }
+  .dfa-result { margin-top: 1rem; }
+  .dfa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
+  .dfa-metric { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; }
+  .dfa-metric .label { font-size: 0.7rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.05em; }
+  .dfa-metric .value { font-size: 1.4rem; margin-top: 0.3rem; }
+  .byte-dump { font-size: 0.75rem; word-break: break-all; color: #8b949e; margin-top: 0.8rem;
+               background: var(--bg); padding: 0.6rem; border-radius: 4px; }
+  .byte-dump .valid { color: var(--green); }
+  .byte-dump .invalid { color: var(--red); }
+  .byte-dump .incomplete { color: var(--yellow); }
+  .inject-row { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; }
+  .inject-btn { background: var(--card); color: var(--fg); border: 1px solid var(--border);
+                padding: 0.3rem 0.6rem; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 0.8rem; }
+  .inject-btn:hover { border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<h1>ByteCanary</h1>
+<p class="subtitle">UTF-8 structural validity evaluation</p>
+
+<div id="error"></div>
+
+<div class="mode-tabs">
+  <button class="mode-tab active" data-mode="playground">DFA Playground</button>
+  <button class="mode-tab" data-mode="eval">Eval Set Runner</button>
+</div>
+
+<!-- ═══ DFA Playground ═══ -->
+<div class="mode-panel active" id="panel-playground">
+  <div class="card">
+    <label>Paste or type text to score through the UTF-8 DFA</label>
+    <textarea id="dfaInput" rows="3" placeholder="Type any text here… try CJK characters, emoji, or mix in raw bytes"></textarea>
+    <div class="inject-row">
+      <span style="font-size:0.75rem;color:#8b949e">Inject test cases:</span>
+      <button class="inject-btn" data-text="Hello, world!">ASCII</button>
+      <button class="inject-btn" data-text="こんにちは世界">Japanese</button>
+      <button class="inject-btn" data-text="한국어 텍스트">Korean</button>
+      <button class="inject-btn" data-text="中文文本测试">Chinese</button>
+      <button class="inject-btn" data-text="🎉🔥💯🌍">Emoji</button>
+      <button class="inject-btn" data-text="café naïve résumé">Accented</button>
+      <button class="inject-btn" data-hex="48 65 6c 6c 6f 80 ff 57 6f 72 6c 64">Invalid bytes</button>
+      <button class="inject-btn" data-hex="e3 81 93 e3 82 93 e3 81 ab e3 81 a1 e3">Truncated 3-byte</button>
+      <button class="inject-btn" data-hex="f0 9f 8e 89 f0 9f 94">Truncated 4-byte</button>
+    </div>
+  </div>
+
+  <div class="dfa-result" id="dfaResult"></div>
+</div>
+
+<!-- ═══ Eval Set Runner ═══ -->
+<div class="mode-panel" id="panel-eval">
+  <div id="apiStatus"></div>
+
+  <div class="controls">
+    <div>
+      <label>Eval set</label><br>
+      <select id="evalset">
+        <option value="bundled">CJK 4000 (bundled)</option>
+        <option value="custom">Load JSON file…</option>
+      </select>
+      <input type="file" id="fileInput" accept=".json" style="display:none">
+    </div>
+    <div>
+      <label>Samples / language</label><br>
+      <input type="number" id="trialSamples" value="8" min="1" max="4000">
+    </div>
+    <div>
+      <label>Generator</label><br>
+      <select id="generator">
+        <option value="prompt-api">Prompt API (Gemini Nano)</option>
+        <option value="echo">Mock: echo char</option>
+        <option value="random-bytes">Mock: random bytes</option>
+        <option value="empty">Mock: empty string</option>
+      </select>
+    </div>
+    <div style="padding-top:1rem">
+      <button id="run">Run Evaluation</button>
+      <button id="exportBtn" class="secondary" disabled>Export JSON</button>
+    </div>
+  </div>
+
+  <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+  <div id="status">Ready</div>
+
+  <div id="results" style="display:none">
+    <h2>Results</h2>
+    <div class="tabs" id="tabs"></div>
+    <div id="tabContents"></div>
+  </div>
+</div>
+
+<script type="module">
+import { UTF8StateMachine, computeDualScore, detectLanguage, groupByTier } from "../dist/index.js";
+
+const BUNDLED_URL = "../data/level0/cjk_4000.json";
+const $ = (id) => document.getElementById(id);
+const encoder = new TextEncoder();
+let evalSet = null;
+let lastResult = null;
+
+// ─── Mode tabs ───
+document.querySelectorAll(".mode-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".mode-panel").forEach(p => p.classList.remove("active"));
+    tab.classList.add("active");
+    $("panel-" + tab.dataset.mode).classList.add("active");
+  });
+});
+
+// ─── DFA Playground ───
+const dfaInput = $("dfaInput");
+let debounceTimer;
+dfaInput.addEventListener("input", () => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => scoreDFA(), 50);
+});
+
+document.querySelectorAll(".inject-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.hex) {
+      dfaInput.value = "";
+      dfaInput.dataset.rawHex = btn.dataset.hex;
+      dfaInput.placeholder = `[raw bytes: ${btn.dataset.hex}]`;
+      scoreDFA(btn.dataset.hex);
+    } else {
+      delete dfaInput.dataset.rawHex;
+      dfaInput.placeholder = "";
+      dfaInput.value = btn.dataset.text;
+      scoreDFA();
+    }
+  });
+});
+
+function hexToBytes(hex) {
+  return new Uint8Array(hex.trim().split(/\s+/).map(h => parseInt(h, 16)));
+}
+
+function scoreDFA(rawHex) {
+  const bytes = rawHex ? hexToBytes(rawHex) : encoder.encode(dfaInput.value);
+  if (bytes.length === 0) {
+    $("dfaResult").innerHTML = "";
+    return;
+  }
+
+  const score = computeDualScore(bytes);
+  const sm = new UTF8StateMachine();
+  const analysis = sm.processBytes(bytes);
+
+  const colorClass = (v) => v >= 0.9 ? "good" : v >= 0.5 ? "warn" : "bad";
+
+  let byteVis = "";
+  const annotated = annotateBytes(bytes);
+  for (const seg of annotated) {
+    byteVis += `<span class="${seg.cls}">${seg.hexes.join(" ")}</span> `;
+  }
+
+  $("dfaResult").innerHTML = `
+    <div class="dfa-grid">
+      <div class="dfa-metric">
+        <div class="label">V_partial</div>
+        <div class="value ${colorClass(score.partialScore)}">${score.partialScore.toFixed(4)}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">V_binary_strict</div>
+        <div class="value ${colorClass(score.binaryStrict)}">${score.binaryStrict.toFixed(0)}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">V_binary_soft</div>
+        <div class="value ${colorClass(score.binarySoft)}">${score.binarySoft.toFixed(4)}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">Valid chars</div>
+        <div class="value">${score.validChars}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">Invalid bytes</div>
+        <div class="value ${score.invalidBytes > 0 ? 'bad' : 'good'}">${score.invalidBytes}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">Total bytes</div>
+        <div class="value">${score.totalBytes}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">Final state</div>
+        <div class="value" style="font-size:0.9rem">${score.finalState}</div>
+      </div>
+      <div class="dfa-metric">
+        <div class="label">Complete</div>
+        <div class="value">${score.isComplete ? "Yes" : "No"}</div>
+      </div>
+    </div>
+    <div class="byte-dump">
+      <strong style="color:var(--fg)">Byte map:</strong>
+      <span class="valid">valid</span>
+      <span class="invalid">invalid</span>
+      <span class="incomplete">incomplete</span><br><br>
+      ${byteVis}
+    </div>
+  `;
+}
+
+function annotateBytes(data) {
+  const segments = [];
+  const sm = new UTF8StateMachine();
+
+  let i = 0;
+  while (i < data.length) {
+    const b = data[i];
+    if (b <= 0x7f) {
+      segments.push({ cls: "valid", hexes: [hex(b)] });
+      i++;
+    } else if (b >= 0xc2 && b <= 0xdf) {
+      i = consumeMultibyte(data, i, 2, segments);
+    } else if (b >= 0xe0 && b <= 0xef) {
+      i = consumeMultibyte(data, i, 3, segments);
+    } else if (b >= 0xf0 && b <= 0xf4) {
+      i = consumeMultibyte(data, i, 4, segments);
+    } else {
+      segments.push({ cls: "invalid", hexes: [hex(b)] });
+      i++;
+    }
+  }
+  return segments;
+}
+
+function consumeMultibyte(data, start, expected, segments) {
+  const hexes = [hex(data[start])];
+  let j = start + 1;
+  while (j < start + expected && j < data.length) {
+    const b = data[j];
+    if (b >= 0x80 && b <= 0xbf) {
+      hexes.push(hex(b));
+      j++;
+    } else {
+      break;
+    }
+  }
+  if (j - start === expected) {
+    segments.push({ cls: "valid", hexes });
+  } else if (j >= data.length) {
+    segments.push({ cls: "incomplete", hexes });
+  } else {
+    segments.push({ cls: "invalid", hexes });
+  }
+  return j;
+}
+
+function hex(b) { return b.toString(16).padStart(2, "0"); }
+
+// ─── Eval Set Runner ───
+
+// Prompt API detection — just check existence, defer capability checks to runtime
+let promptAPIRef = null; // the LanguageModel object once found
+
+function findLanguageModel() {
+  if (typeof LanguageModel !== "undefined") return LanguageModel;
+  if (window.ai?.languageModel) return window.ai.languageModel;
+  if (self.ai?.languageModel) return self.ai.languageModel;
+  return null;
+}
+
+promptAPIRef = findLanguageModel();
+{
+  const diag = `typeof LanguageModel=${typeof LanguageModel}, ` +
+    `typeof window.ai=${typeof window.ai}, ` +
+    `window.ai?.languageModel=${typeof window.ai?.languageModel}`;
+  if (!promptAPIRef) {
+    $("apiStatus").innerHTML = `<div class="note info" style="margin-bottom:1rem">
+      <strong>Prompt API not detected.</strong> Use a mock generator to test the evaluation pipeline.<br>
+      <code style="font-size:0.7rem">${diag}</code>
+    </div>`;
+    $("generator").value = "echo";
+  } else {
+    $("apiStatus").innerHTML = `<div class="note info" style="margin-bottom:1rem">
+      <strong>Prompt API detected.</strong><br>
+      <code style="font-size:0.7rem">${diag}</code>
+    </div>`;
+  }
+}
+
+$("evalset").addEventListener("change", (e) => {
+  if (e.target.value === "custom") $("fileInput").click();
+});
+
+$("fileInput").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  evalSet = JSON.parse(await file.text());
+  $("evalset").options[1].text = file.name;
+  showStatus(`Loaded ${evalSet.char_frequencies.length} characters from ${file.name}`);
+});
+
+$("exportBtn").addEventListener("click", () => {
+  if (!lastResult) return;
+  const stripped = structuredClone(lastResult);
+  for (const lr of Object.values(stripped.languages)) {
+    for (const r of lr.results) delete r.generatedBytes;
+  }
+  const blob = new Blob([JSON.stringify(stripped, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `bytecanary_${new Date().toISOString().slice(0,19).replace(/:/g,"-")}.json`;
+  a.click();
+});
+
+async function mockGenerate(char, mode) {
+  switch (mode) {
+    case "echo": return char;
+    case "empty": return "";
+    case "random-bytes": {
+      const len = 5 + Math.floor(Math.random() * 15);
+      const arr = new Uint8Array(len);
+      crypto.getRandomValues(arr);
+      try { return new TextDecoder("utf-8", { fatal: false }).decode(arr); }
+      catch { return ""; }
+    }
+    default: return char;
+  }
+}
+
+function groupByLang(chars, languages) {
+  const groups = new Map();
+  for (const lang of languages) groups.set(lang, []);
+  for (const entry of chars) {
+    const lang = detectLanguage(entry.char);
+    if (groups.has(lang)) groups.get(lang).push(entry);
+  }
+  return groups;
+}
+
+function aggregateStats(results) {
+  if (results.length === 0) return { totalSamples: 0, validUtf8Rate: 0, avgDfaPartial: 0, avgDfaStrict: 0, avgDfaSoft: 0 };
+  const n = results.length;
+  return {
+    totalSamples: n,
+    validUtf8Rate: results.filter(r => r.isValidUtf8).length / n,
+    avgDfaPartial: results.reduce((s, r) => s + r.dfa.partialScore, 0) / n,
+    avgDfaStrict: results.reduce((s, r) => s + r.dfa.binaryStrict, 0) / n,
+    avgDfaSoft: results.reduce((s, r) => s + r.dfa.binarySoft, 0) / n,
+  };
+}
+
+$("run").addEventListener("click", async () => {
+  $("run").disabled = true;
+  $("exportBtn").disabled = true;
+  $("results").style.display = "none";
+  $("error").style.display = "none";
+
+  try {
+    if (!evalSet) {
+      showStatus("Loading bundled eval set…");
+      const resp = await fetch(BUNDLED_URL);
+      if (!resp.ok) throw new Error(`Failed to load eval set: ${resp.status}`);
+      evalSet = await resp.json();
+    }
+
+    const trialSamples = parseInt($("trialSamples").value) || 8;
+    const genMode = $("generator").value;
+    const languages = ["ja", "ko", "zh"];
+
+    let session = null;
+    if (genMode === "prompt-api") {
+      if (!promptAPIRef) promptAPIRef = findLanguageModel();
+      if (!promptAPIRef) throw new Error(
+        "No Prompt API found. typeof LanguageModel=" + typeof LanguageModel +
+        ", window.ai=" + typeof window.ai
+      );
+      session = await promptAPIRef.create();
+    }
+
+    const grouped = groupByLang(evalSet.char_frequencies, languages);
+    const langResults = {};
+    let done = 0;
+    let total = 0;
+    for (const [, chars] of grouped) total += Math.min(trialSamples, chars.length);
+
+    showStatus("Starting evaluation…");
+
+    for (const [lang, chars] of grouped) {
+      if (chars.length === 0) continue;
+      const subset = chars.slice(0, trialSamples);
+      const results = [];
+
+      for (const entry of subset) {
+        let generated;
+        if (genMode === "prompt-api") {
+          const prompt = `Continue this character sequence. Output ONLY the next few characters, nothing else.\n\n${entry.char}`;
+          try { generated = await session.prompt(prompt); } catch { generated = ""; }
+        } else {
+          generated = await mockGenerate(entry.char, genMode);
+        }
+
+        const generatedBytes = encoder.encode(generated);
+        const dfa = computeDualScore(generatedBytes);
+
+        const result = {
+          char: entry.char, codepoint: entry.codepoint, tier: entry.tier,
+          language: lang, generated, generatedBytes, dfa,
+          isValidUtf8: dfa.binaryStrict === 1.0,
+        };
+        results.push(result);
+        done++;
+        const pct = Math.round((done / total) * 100);
+        $("progressBar").style.width = pct + "%";
+        showStatus(`${done}/${total} — ${entry.char} (${entry.tier}) → V_partial ${dfa.partialScore.toFixed(3)}`);
+        if (genMode !== "prompt-api") await new Promise(r => setTimeout(r, 2));
+      }
+
+      const byTier = {};
+      const tierGroups = new Map();
+      for (const r of results) {
+        if (!tierGroups.has(r.tier)) tierGroups.set(r.tier, []);
+        tierGroups.get(r.tier).push(r);
+      }
+      for (const [tier, tResults] of tierGroups) byTier[tier] = aggregateStats(tResults);
+
+      langResults[lang] = {
+        language: lang, totalCharacters: results.length,
+        overallStats: aggregateStats(results), byTier, results,
+      };
+    }
+
+    if (session) session.destroy();
+
+    lastResult = {
+      model: genMode === "prompt-api" ? "gemini-nano (Prompt API)" : `mock:${genMode}`,
+      timestamp: new Date().toISOString(),
+      generator: genMode,
+      languages: langResults,
+    };
+
+    renderResults(lastResult);
+    $("exportBtn").disabled = false;
+    showStatus(`Done — ${Object.keys(langResults).length} languages, generator: ${genMode}`);
+  } catch (e) {
+    $("error").textContent = e.message;
+    $("error").style.display = "block";
+    showStatus("Error");
+  } finally {
+    $("run").disabled = false;
+  }
+});
+
+function showStatus(msg) { $("status").textContent = msg; }
+
+function renderResults(result) {
+  $("results").style.display = "block";
+  const tabsEl = $("tabs");
+  const contentsEl = $("tabContents");
+  tabsEl.innerHTML = "";
+  contentsEl.innerHTML = "";
+
+  const langs = Object.keys(result.languages);
+  langs.forEach((lang, i) => {
+    const tab = document.createElement("div");
+    tab.className = "tab" + (i === 0 ? " active" : "");
+    tab.textContent = lang.toUpperCase();
+    tab.dataset.lang = lang;
+    tab.addEventListener("click", () => switchTab(lang));
+    tabsEl.appendChild(tab);
+
+    const content = document.createElement("div");
+    content.className = "tab-content card" + (i === 0 ? " active" : "");
+    content.id = "tab-" + lang;
+    content.innerHTML = renderLangResult(result.languages[lang]);
+    contentsEl.appendChild(content);
+  });
+}
+
+function switchTab(lang) {
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.lang === lang));
+  document.querySelectorAll(".tab-content").forEach(c => c.classList.toggle("active", c.id === "tab-" + lang));
+}
+
+function renderLangResult(lr) {
+  let html = `<p>${lr.totalCharacters} characters evaluated</p>`;
+
+  html += `<h2 style="margin-top:1rem">Overall</h2>`;
+  html += statsTable(lr.overallStats);
+
+  html += `<h2>By Tier</h2>`;
+  html += `<table><tr><th>Tier</th><th class="num">N</th><th class="num">Valid UTF-8</th>` +
+           `<th class="num">V_partial</th><th class="num">V_strict</th><th class="num">V_soft</th></tr>`;
+  for (const [tier, stats] of Object.entries(lr.byTier)) {
+    html += `<tr><td><span class="badge badge-${tier}">${tier}</span></td>` +
+            `<td class="num">${stats.totalSamples}</td>` +
+            `<td class="num">${pct(stats.validUtf8Rate)}</td>` +
+            `<td class="num">${stats.avgDfaPartial.toFixed(4)}</td>` +
+            `<td class="num">${stats.avgDfaStrict.toFixed(4)}</td>` +
+            `<td class="num">${stats.avgDfaSoft.toFixed(4)}</td></tr>`;
+  }
+  html += `</table>`;
+
+  html += `<h2>Samples</h2>`;
+  html += `<table><tr><th>Char</th><th>Tier</th><th>Generated</th>` +
+           `<th class="num">V_partial</th><th class="num">V_strict</th></tr>`;
+  for (const r of lr.results) {
+    const cls = r.dfa.partialScore >= 0.9 ? "good" : r.dfa.partialScore >= 0.5 ? "warn" : "bad";
+    const genPreview = r.generated.slice(0, 30) + (r.generated.length > 30 ? "…" : "");
+    html += `<tr><td class="char-cell">${esc(r.char)}</td>` +
+            `<td><span class="badge badge-${r.tier}">${r.tier}</span></td>` +
+            `<td>${esc(genPreview)}</td>` +
+            `<td class="num ${cls}">${r.dfa.partialScore.toFixed(4)}</td>` +
+            `<td class="num">${r.dfa.binaryStrict.toFixed(0)}</td></tr>`;
+  }
+  html += `</table>`;
+  return html;
+}
+
+function statsTable(s) {
+  return `<table>` +
+    `<tr><td>Valid UTF-8</td><td class="num">${pct(s.validUtf8Rate)}</td></tr>` +
+    `<tr><td>V_partial (avg)</td><td class="num">${s.avgDfaPartial.toFixed(4)}</td></tr>` +
+    `<tr><td>V_binary_strict (avg)</td><td class="num">${s.avgDfaStrict.toFixed(4)}</td></tr>` +
+    `<tr><td>V_binary_soft (avg)</td><td class="num">${s.avgDfaSoft.toFixed(4)}</td></tr>` +
+    `</table>`;
+}
+
+function pct(v) { return (v * 100).toFixed(1) + "%"; }
+function esc(s) { const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+</script>
+
+</body>
+</html>
