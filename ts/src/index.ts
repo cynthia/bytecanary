@@ -24,3 +24,5 @@ export {
   type LangResult,
   type TierStats,
 } from "./evaluate.js";
+
+export { ByteTokenizer, type TokenizerType } from "./decode.js";

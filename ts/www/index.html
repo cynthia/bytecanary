@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ByteCanary — UTF-8 Structural Validity Evaluation</title>
+<title>ByteCanary</title>
+<script type="importmap">
+{ "imports": { "@huggingface/transformers": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3" } }
+</script>
 <style>
   :root { --bg: #0d1117; --fg: #c9d1d9; --accent: #58a6ff; --green: #3fb950;
            --red: #f85149; --yellow: #d29922; --border: #30363d; --card: #161b22; }
@@ -13,17 +16,19 @@
   h1 { color: var(--accent); font-size: 1.4rem; margin-bottom: 0.5rem; }
   h2 { color: var(--fg); font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
   .subtitle { color: #8b949e; font-size: 0.85rem; margin-bottom: 1.5rem; }
-  .controls { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+  .controls { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; margin-bottom: 1rem; }
+  .control-group { display: flex; flex-direction: column; gap: 0.2rem; }
   button { background: var(--accent); color: var(--bg); border: none; padding: 0.5rem 1.2rem;
-           border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.85rem;
-           font-weight: 600; }
+           border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.85rem; font-weight: 600; }
   button:disabled { opacity: 0.4; cursor: not-allowed; }
   button:hover:not(:disabled) { filter: brightness(1.15); }
   button.secondary { background: var(--border); color: var(--fg); }
   button.secondary:hover:not(:disabled) { background: #484f58; }
-  select, input[type=number] { background: var(--card); color: var(--fg); border: 1px solid var(--border);
-           padding: 0.4rem 0.6rem; border-radius: 6px; font-family: inherit; font-size: 0.85rem; }
+  select, input[type=number], input[type=text] {
+    background: var(--card); color: var(--fg); border: 1px solid var(--border);
+    padding: 0.4rem 0.6rem; border-radius: 6px; font-family: inherit; font-size: 0.85rem; }
   input[type=number] { width: 5rem; }
+  input[type=text] { width: 18rem; }
   textarea { background: var(--card); color: var(--fg); border: 1px solid var(--border);
              padding: 0.8rem; border-radius: 6px; font-family: inherit; font-size: 0.95rem;
              width: 100%; resize: vertical; }
@@ -60,8 +65,7 @@
   .tab.active { background: var(--card); border-color: var(--border); color: var(--fg); }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-  .badge { display: inline-block; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 4px;
-           font-weight: 600; }
+  .badge { display: inline-block; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; }
   .badge-common { background: rgba(63,185,80,0.15); color: var(--green); }
   .badge-uncommon { background: rgba(88,166,255,0.15); color: var(--accent); }
   .badge-rare { background: rgba(210,153,34,0.15); color: var(--yellow); }
@@ -80,6 +84,7 @@
   .inject-btn { background: var(--card); color: var(--fg); border: 1px solid var(--border);
                 padding: 0.3rem 0.6rem; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 0.8rem; }
   .inject-btn:hover { border-color: var(--accent); }
+  .hidden { display: none; }
 </style>
 </head>
 <body>
@@ -91,59 +96,81 @@
 
 <div class="mode-tabs">
   <button class="mode-tab active" data-mode="playground">DFA Playground</button>
-  <button class="mode-tab" data-mode="eval">Eval Set Runner</button>
+  <button class="mode-tab" data-mode="eval">Evaluation</button>
 </div>
 
-<!-- ═══ DFA Playground ═══ -->
+<!-- DFA Playground -->
 <div class="mode-panel active" id="panel-playground">
   <div class="card">
     <label>Paste or type text to score through the UTF-8 DFA</label>
-    <textarea id="dfaInput" rows="3" placeholder="Type any text here… try CJK characters, emoji, or mix in raw bytes"></textarea>
+    <textarea id="dfaInput" rows="3" placeholder="Type any text here…"></textarea>
     <div class="inject-row">
-      <span style="font-size:0.75rem;color:#8b949e">Inject test cases:</span>
+      <span style="font-size:0.75rem;color:#8b949e">Test cases:</span>
       <button class="inject-btn" data-text="Hello, world!">ASCII</button>
       <button class="inject-btn" data-text="こんにちは世界">Japanese</button>
       <button class="inject-btn" data-text="한국어 텍스트">Korean</button>
       <button class="inject-btn" data-text="中文文本测试">Chinese</button>
       <button class="inject-btn" data-text="🎉🔥💯🌍">Emoji</button>
-      <button class="inject-btn" data-text="café naïve résumé">Accented</button>
       <button class="inject-btn" data-hex="48 65 6c 6c 6f 80 ff 57 6f 72 6c 64">Invalid bytes</button>
       <button class="inject-btn" data-hex="e3 81 93 e3 82 93 e3 81 ab e3 81 a1 e3">Truncated 3-byte</button>
       <button class="inject-btn" data-hex="f0 9f 8e 89 f0 9f 94">Truncated 4-byte</button>
     </div>
   </div>
-
   <div class="dfa-result" id="dfaResult"></div>
 </div>
 
-<!-- ═══ Eval Set Runner ═══ -->
+<!-- Evaluation -->
 <div class="mode-panel" id="panel-eval">
-  <div id="apiStatus"></div>
-
   <div class="controls">
-    <div>
-      <label>Eval set</label><br>
+    <div class="control-group">
+      <label>Backend</label>
+      <select id="backend">
+        <option value="transformers-js">Transformers.js (full eval)</option>
+        <option value="prompt-api">Prompt API (text-level)</option>
+      </select>
+    </div>
+
+    <div class="control-group" id="hfModelGroup">
+      <label>HuggingFace model</label>
+      <input type="text" id="modelId" value="onnx-community/gpt2" placeholder="model ID or path">
+    </div>
+
+    <div class="control-group" id="hfDtypeGroup">
+      <label>Dtype</label>
+      <select id="dtype">
+        <option value="q4">q4</option>
+        <option value="q8">q8</option>
+        <option value="fp16">fp16</option>
+        <option value="fp32">fp32</option>
+      </select>
+    </div>
+
+    <div class="control-group" id="prefixGroup">
+      <label>Prefix bytes</label>
+      <input type="number" id="prefixLen" value="2" min="1" max="3">
+    </div>
+
+    <div class="control-group">
+      <label>Eval set</label>
       <select id="evalset">
         <option value="bundled">CJK 4000 (bundled)</option>
-        <option value="custom">Load JSON file…</option>
+        <option value="custom">Load JSON…</option>
       </select>
       <input type="file" id="fileInput" accept=".json" style="display:none">
     </div>
-    <div>
-      <label>Samples / language</label><br>
+
+    <div class="control-group">
+      <label>Samples / lang</label>
       <input type="number" id="trialSamples" value="8" min="1" max="4000">
     </div>
-    <div>
-      <label>Generator</label><br>
-      <select id="generator">
-        <option value="prompt-api">Prompt API (Gemini Nano)</option>
-        <option value="echo">Mock: echo char</option>
-        <option value="random-bytes">Mock: random bytes</option>
-        <option value="empty">Mock: empty string</option>
-      </select>
+
+    <div class="control-group">
+      <label>Level 1 data</label>
+      <input type="file" id="l1FileInput" accept=".json" multiple>
     </div>
-    <div style="padding-top:1rem">
-      <button id="run">Run Evaluation</button>
+
+    <div class="control-group" style="justify-content:flex-end">
+      <button id="run">Run</button>
       <button id="exportBtn" class="secondary" disabled>Export JSON</button>
     </div>
   </div>
@@ -159,13 +186,14 @@
 </div>
 
 <script type="module">
-import { UTF8StateMachine, computeDualScore, detectLanguage, groupByTier } from "../dist/index.js";
+import { UTF8StateMachine, computeDualScore, detectLanguage } from "../dist/index.js";
 
 const BUNDLED_URL = "../data/level0/cjk_4000.json";
 const $ = (id) => document.getElementById(id);
 const encoder = new TextEncoder();
 let evalSet = null;
 let lastResult = null;
+let level1Data = null;
 
 // ─── Mode tabs ───
 document.querySelectorAll(".mode-tab").forEach(tab => {
@@ -177,181 +205,82 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
   });
 });
 
+// ─── Backend toggle ───
+$("backend").addEventListener("change", () => updateBackendUI());
+function updateBackendUI() {
+  const isHF = $("backend").value === "transformers-js";
+  $("hfModelGroup").classList.toggle("hidden", !isHF);
+  $("hfDtypeGroup").classList.toggle("hidden", !isHF);
+  $("prefixGroup").classList.toggle("hidden", !isHF);
+}
+updateBackendUI();
+
 // ─── DFA Playground ───
 const dfaInput = $("dfaInput");
 let debounceTimer;
-dfaInput.addEventListener("input", () => {
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => scoreDFA(), 50);
-});
+dfaInput.addEventListener("input", () => { clearTimeout(debounceTimer); debounceTimer = setTimeout(() => scoreDFA(), 50); });
 
 document.querySelectorAll(".inject-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     if (btn.dataset.hex) {
-      dfaInput.value = "";
-      dfaInput.dataset.rawHex = btn.dataset.hex;
+      dfaInput.value = ""; dfaInput.dataset.rawHex = btn.dataset.hex;
       dfaInput.placeholder = `[raw bytes: ${btn.dataset.hex}]`;
       scoreDFA(btn.dataset.hex);
     } else {
-      delete dfaInput.dataset.rawHex;
-      dfaInput.placeholder = "";
-      dfaInput.value = btn.dataset.text;
-      scoreDFA();
+      delete dfaInput.dataset.rawHex; dfaInput.placeholder = "";
+      dfaInput.value = btn.dataset.text; scoreDFA();
     }
   });
 });
 
-function hexToBytes(hex) {
-  return new Uint8Array(hex.trim().split(/\s+/).map(h => parseInt(h, 16)));
-}
+function hexToBytes(hex) { return new Uint8Array(hex.trim().split(/\s+/).map(h => parseInt(h, 16))); }
 
 function scoreDFA(rawHex) {
   const bytes = rawHex ? hexToBytes(rawHex) : encoder.encode(dfaInput.value);
-  if (bytes.length === 0) {
-    $("dfaResult").innerHTML = "";
-    return;
-  }
-
+  if (bytes.length === 0) { $("dfaResult").innerHTML = ""; return; }
   const score = computeDualScore(bytes);
-  const sm = new UTF8StateMachine();
-  const analysis = sm.processBytes(bytes);
-
   const colorClass = (v) => v >= 0.9 ? "good" : v >= 0.5 ? "warn" : "bad";
-
   let byteVis = "";
-  const annotated = annotateBytes(bytes);
-  for (const seg of annotated) {
-    byteVis += `<span class="${seg.cls}">${seg.hexes.join(" ")}</span> `;
-  }
-
+  for (const seg of annotateBytes(bytes)) byteVis += `<span class="${seg.cls}">${seg.hexes.join(" ")}</span> `;
   $("dfaResult").innerHTML = `
     <div class="dfa-grid">
-      <div class="dfa-metric">
-        <div class="label">V_partial</div>
-        <div class="value ${colorClass(score.partialScore)}">${score.partialScore.toFixed(4)}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">V_binary_strict</div>
-        <div class="value ${colorClass(score.binaryStrict)}">${score.binaryStrict.toFixed(0)}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">V_binary_soft</div>
-        <div class="value ${colorClass(score.binarySoft)}">${score.binarySoft.toFixed(4)}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">Valid chars</div>
-        <div class="value">${score.validChars}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">Invalid bytes</div>
-        <div class="value ${score.invalidBytes > 0 ? 'bad' : 'good'}">${score.invalidBytes}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">Total bytes</div>
-        <div class="value">${score.totalBytes}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">Final state</div>
-        <div class="value" style="font-size:0.9rem">${score.finalState}</div>
-      </div>
-      <div class="dfa-metric">
-        <div class="label">Complete</div>
-        <div class="value">${score.isComplete ? "Yes" : "No"}</div>
-      </div>
+      <div class="dfa-metric"><div class="label">V_partial</div><div class="value ${colorClass(score.partialScore)}">${score.partialScore.toFixed(4)}</div></div>
+      <div class="dfa-metric"><div class="label">V_binary_strict</div><div class="value ${colorClass(score.binaryStrict)}">${score.binaryStrict.toFixed(0)}</div></div>
+      <div class="dfa-metric"><div class="label">V_binary_soft</div><div class="value ${colorClass(score.binarySoft)}">${score.binarySoft.toFixed(4)}</div></div>
+      <div class="dfa-metric"><div class="label">Valid chars</div><div class="value">${score.validChars}</div></div>
+      <div class="dfa-metric"><div class="label">Invalid bytes</div><div class="value ${score.invalidBytes > 0 ? 'bad' : 'good'}">${score.invalidBytes}</div></div>
+      <div class="dfa-metric"><div class="label">Total bytes</div><div class="value">${score.totalBytes}</div></div>
+      <div class="dfa-metric"><div class="label">Final state</div><div class="value" style="font-size:0.9rem">${score.finalState}</div></div>
+      <div class="dfa-metric"><div class="label">Complete</div><div class="value">${score.isComplete ? "Yes" : "No"}</div></div>
     </div>
-    <div class="byte-dump">
-      <strong style="color:var(--fg)">Byte map:</strong>
-      <span class="valid">valid</span>
-      <span class="invalid">invalid</span>
-      <span class="incomplete">incomplete</span><br><br>
-      ${byteVis}
-    </div>
-  `;
+    <div class="byte-dump"><strong style="color:var(--fg)">Byte map:</strong>
+      <span class="valid">valid</span> <span class="invalid">invalid</span> <span class="incomplete">incomplete</span><br><br>${byteVis}</div>`;
 }
 
 function annotateBytes(data) {
   const segments = [];
-  const sm = new UTF8StateMachine();
-
   let i = 0;
   while (i < data.length) {
     const b = data[i];
-    if (b <= 0x7f) {
-      segments.push({ cls: "valid", hexes: [hex(b)] });
-      i++;
-    } else if (b >= 0xc2 && b <= 0xdf) {
-      i = consumeMultibyte(data, i, 2, segments);
-    } else if (b >= 0xe0 && b <= 0xef) {
-      i = consumeMultibyte(data, i, 3, segments);
-    } else if (b >= 0xf0 && b <= 0xf4) {
-      i = consumeMultibyte(data, i, 4, segments);
-    } else {
-      segments.push({ cls: "invalid", hexes: [hex(b)] });
-      i++;
-    }
+    if (b <= 0x7f) { segments.push({ cls: "valid", hexes: [hex(b)] }); i++; }
+    else if (b >= 0xc2 && b <= 0xdf) { i = consumeMulti(data, i, 2, segments); }
+    else if (b >= 0xe0 && b <= 0xef) { i = consumeMulti(data, i, 3, segments); }
+    else if (b >= 0xf0 && b <= 0xf4) { i = consumeMulti(data, i, 4, segments); }
+    else { segments.push({ cls: "invalid", hexes: [hex(b)] }); i++; }
   }
   return segments;
 }
-
-function consumeMultibyte(data, start, expected, segments) {
+function consumeMulti(data, start, expected, segments) {
   const hexes = [hex(data[start])];
   let j = start + 1;
-  while (j < start + expected && j < data.length) {
-    const b = data[j];
-    if (b >= 0x80 && b <= 0xbf) {
-      hexes.push(hex(b));
-      j++;
-    } else {
-      break;
-    }
-  }
-  if (j - start === expected) {
-    segments.push({ cls: "valid", hexes });
-  } else if (j >= data.length) {
-    segments.push({ cls: "incomplete", hexes });
-  } else {
-    segments.push({ cls: "invalid", hexes });
-  }
+  while (j < start + expected && j < data.length && data[j] >= 0x80 && data[j] <= 0xbf) { hexes.push(hex(data[j])); j++; }
+  segments.push({ cls: j - start === expected ? "valid" : j >= data.length ? "incomplete" : "invalid", hexes });
   return j;
 }
-
 function hex(b) { return b.toString(16).padStart(2, "0"); }
 
-// ─── Eval Set Runner ───
-
-// Prompt API detection — just check existence, defer capability checks to runtime
-let promptAPIRef = null; // the LanguageModel object once found
-
-function findLanguageModel() {
-  if (typeof LanguageModel !== "undefined") return LanguageModel;
-  if (window.ai?.languageModel) return window.ai.languageModel;
-  if (self.ai?.languageModel) return self.ai.languageModel;
-  return null;
-}
-
-promptAPIRef = findLanguageModel();
-{
-  const diag = `typeof LanguageModel=${typeof LanguageModel}, ` +
-    `typeof window.ai=${typeof window.ai}, ` +
-    `window.ai?.languageModel=${typeof window.ai?.languageModel}`;
-  if (!promptAPIRef) {
-    $("apiStatus").innerHTML = `<div class="note info" style="margin-bottom:1rem">
-      <strong>Prompt API not detected.</strong> Use a mock generator to test the evaluation pipeline.<br>
-      <code style="font-size:0.7rem">${diag}</code>
-    </div>`;
-    $("generator").value = "echo";
-  } else {
-    $("apiStatus").innerHTML = `<div class="note info" style="margin-bottom:1rem">
-      <strong>Prompt API detected.</strong><br>
-      <code style="font-size:0.7rem">${diag}</code>
-    </div>`;
-  }
-}
-
-$("evalset").addEventListener("change", (e) => {
-  if (e.target.value === "custom") $("fileInput").click();
-});
-
+// ─── Eval data loading ───
+$("evalset").addEventListener("change", (e) => { if (e.target.value === "custom") $("fileInput").click(); });
 $("fileInput").addEventListener("change", async (e) => {
   const file = e.target.files[0];
   if (!file) return;
@@ -360,61 +289,34 @@ $("fileInput").addEventListener("change", async (e) => {
   showStatus(`Loaded ${evalSet.char_frequencies.length} characters from ${file.name}`);
 });
 
+$("l1FileInput").addEventListener("change", async (e) => {
+  level1Data = {};
+  for (const file of e.target.files) {
+    const data = JSON.parse(await file.text());
+    if (Array.isArray(data) && data.length > 0 && data[0].language) {
+      const lang = data[0].language;
+      level1Data[lang] = data;
+      showStatus(`Level 1: loaded ${data.length} samples for ${lang}`);
+    }
+  }
+});
+
 $("exportBtn").addEventListener("click", () => {
   if (!lastResult) return;
-  const stripped = structuredClone(lastResult);
-  for (const lr of Object.values(stripped.languages)) {
-    for (const r of lr.results) delete r.generatedBytes;
-  }
-  const blob = new Blob([JSON.stringify(stripped, null, 2)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify(lastResult, (k, v) => v instanceof Uint8Array ? Array.from(v) : v, 2)], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = `bytecanary_${new Date().toISOString().slice(0,19).replace(/:/g,"-")}.json`;
   a.click();
 });
 
-async function mockGenerate(char, mode) {
-  switch (mode) {
-    case "echo": return char;
-    case "empty": return "";
-    case "random-bytes": {
-      const len = 5 + Math.floor(Math.random() * 15);
-      const arr = new Uint8Array(len);
-      crypto.getRandomValues(arr);
-      try { return new TextDecoder("utf-8", { fatal: false }).decode(arr); }
-      catch { return ""; }
-    }
-    default: return char;
-  }
-}
-
-function groupByLang(chars, languages) {
-  const groups = new Map();
-  for (const lang of languages) groups.set(lang, []);
-  for (const entry of chars) {
-    const lang = detectLanguage(entry.char);
-    if (groups.has(lang)) groups.get(lang).push(entry);
-  }
-  return groups;
-}
-
-function aggregateStats(results) {
-  if (results.length === 0) return { totalSamples: 0, validUtf8Rate: 0, avgDfaPartial: 0, avgDfaStrict: 0, avgDfaSoft: 0 };
-  const n = results.length;
-  return {
-    totalSamples: n,
-    validUtf8Rate: results.filter(r => r.isValidUtf8).length / n,
-    avgDfaPartial: results.reduce((s, r) => s + r.dfa.partialScore, 0) / n,
-    avgDfaStrict: results.reduce((s, r) => s + r.dfa.binaryStrict, 0) / n,
-    avgDfaSoft: results.reduce((s, r) => s + r.dfa.binarySoft, 0) / n,
-  };
-}
-
+// ─── Run evaluation ───
 $("run").addEventListener("click", async () => {
   $("run").disabled = true;
   $("exportBtn").disabled = true;
   $("results").style.display = "none";
   $("error").style.display = "none";
+  $("progressBar").style.width = "0%";
 
   try {
     if (!evalSet) {
@@ -424,117 +326,264 @@ $("run").addEventListener("click", async () => {
       evalSet = await resp.json();
     }
 
+    const backend = $("backend").value;
     const trialSamples = parseInt($("trialSamples").value) || 8;
-    const genMode = $("generator").value;
-    const languages = ["ja", "ko", "zh"];
 
-    let session = null;
-    if (genMode === "prompt-api") {
-      if (!promptAPIRef) promptAPIRef = findLanguageModel();
-      if (!promptAPIRef) throw new Error(
-        "No Prompt API found. typeof LanguageModel=" + typeof LanguageModel +
-        ", window.ai=" + typeof window.ai
-      );
-      session = await promptAPIRef.create();
+    if (backend === "transformers-js") {
+      await runHF(trialSamples);
+    } else {
+      await runPromptAPI(trialSamples);
     }
 
-    const grouped = groupByLang(evalSet.char_frequencies, languages);
-    const langResults = {};
-    let done = 0;
-    let total = 0;
-    for (const [, chars] of grouped) total += Math.min(trialSamples, chars.length);
-
-    showStatus("Starting evaluation…");
-
-    for (const [lang, chars] of grouped) {
-      if (chars.length === 0) continue;
-      const subset = chars.slice(0, trialSamples);
-      const results = [];
-
-      for (const entry of subset) {
-        let generated;
-        if (genMode === "prompt-api") {
-          const prompt = `Continue this character sequence. Output ONLY the next few characters, nothing else.\n\n${entry.char}`;
-          try { generated = await session.prompt(prompt); } catch { generated = ""; }
-        } else {
-          generated = await mockGenerate(entry.char, genMode);
-        }
-
-        const generatedBytes = encoder.encode(generated);
-        const dfa = computeDualScore(generatedBytes);
-
-        const result = {
-          char: entry.char, codepoint: entry.codepoint, tier: entry.tier,
-          language: lang, generated, generatedBytes, dfa,
-          isValidUtf8: dfa.binaryStrict === 1.0,
-        };
-        results.push(result);
-        done++;
-        const pct = Math.round((done / total) * 100);
-        $("progressBar").style.width = pct + "%";
-        showStatus(`${done}/${total} — ${entry.char} (${entry.tier}) → V_partial ${dfa.partialScore.toFixed(3)}`);
-        if (genMode !== "prompt-api") await new Promise(r => setTimeout(r, 2));
-      }
-
-      const byTier = {};
-      const tierGroups = new Map();
-      for (const r of results) {
-        if (!tierGroups.has(r.tier)) tierGroups.set(r.tier, []);
-        tierGroups.get(r.tier).push(r);
-      }
-      for (const [tier, tResults] of tierGroups) byTier[tier] = aggregateStats(tResults);
-
-      langResults[lang] = {
-        language: lang, totalCharacters: results.length,
-        overallStats: aggregateStats(results), byTier, results,
-      };
-    }
-
-    if (session) session.destroy();
-
-    lastResult = {
-      model: genMode === "prompt-api" ? "gemini-nano (Prompt API)" : `mock:${genMode}`,
-      timestamp: new Date().toISOString(),
-      generator: genMode,
-      languages: langResults,
-    };
-
-    renderResults(lastResult);
     $("exportBtn").disabled = false;
-    showStatus(`Done — ${Object.keys(langResults).length} languages, generator: ${genMode}`);
   } catch (e) {
     $("error").textContent = e.message;
     $("error").style.display = "block";
     showStatus("Error");
+    console.error(e);
   } finally {
     $("run").disabled = false;
   }
 });
 
+async function runHF(trialSamples) {
+  const { evaluateHF } = await import("../dist/hf-evaluate.js");
+  const modelId = $("modelId").value.trim();
+  if (!modelId) throw new Error("Enter a model ID");
+
+  const result = await evaluateHF(evalSet, {
+    model: modelId,
+    dtype: $("dtype").value,
+    prefixLength: parseInt($("prefixLen").value) || 2,
+    maxNewTokens: 5,
+    trialSamples,
+    level1Data: level1Data,
+    onProgress: (msg, done, total) => {
+      if (total > 0) $("progressBar").style.width = Math.round((done / total) * 100) + "%";
+      showStatus(msg);
+    },
+    onModelProgress: (p) => {
+      if (p.progress !== undefined) {
+        showStatus(`Downloading ${p.file ?? "model"}: ${Math.round(p.progress)}%`);
+        $("progressBar").style.width = Math.round(p.progress) + "%";
+      } else {
+        showStatus(p.status);
+      }
+    },
+  });
+
+  lastResult = result;
+  renderHFResults(result);
+  showStatus(`Done — ${result.model}, ${result.tokenizerType}, ${result.byteCoverage}/256 byte tokens`);
+}
+
+async function runPromptAPI(trialSamples) {
+  const promptAPI = findLanguageModel();
+  if (!promptAPI) throw new Error(
+    "No Prompt API found. typeof LanguageModel=" + typeof LanguageModel +
+    ", window.ai=" + typeof window.ai
+  );
+
+  const session = await promptAPI.create();
+  const languages = ["ja", "ko", "zh"];
+  const grouped = new Map();
+  for (const lang of languages) grouped.set(lang, []);
+  for (const entry of evalSet.char_frequencies) {
+    const lang = detectLanguage(entry.char);
+    if (grouped.has(lang)) grouped.get(lang).push(entry);
+  }
+
+  const langResults = {};
+  let done = 0;
+  let total = 0;
+  for (const [, chars] of grouped) total += Math.min(trialSamples, chars.length);
+
+  for (const [lang, chars] of grouped) {
+    if (chars.length === 0) continue;
+    const subset = chars.slice(0, trialSamples);
+    const results = [];
+
+    for (const entry of subset) {
+      const prompt = `Continue this character sequence. Output ONLY the next few characters, nothing else.\n\n${entry.char}`;
+      let generated;
+      try { generated = await session.prompt(prompt); } catch { generated = ""; }
+
+      const genBytes = encoder.encode(generated);
+      const dfa = computeDualScore(genBytes);
+
+      results.push({
+        char: entry.char, codepoint: entry.codepoint, tier: entry.tier,
+        language: lang, generated, dfa, isValidUtf8: dfa.binaryStrict === 1.0,
+      });
+      done++;
+      $("progressBar").style.width = Math.round((done / total) * 100) + "%";
+      showStatus(`${done}/${total} — ${entry.char} (${entry.tier}) → V=${dfa.partialScore.toFixed(3)}`);
+    }
+
+    const byTier = {};
+    const tierGroups = new Map();
+    for (const r of results) { if (!tierGroups.has(r.tier)) tierGroups.set(r.tier, []); tierGroups.get(r.tier).push(r); }
+    for (const [tier, tr] of tierGroups) byTier[tier] = aggSimple(tr);
+
+    langResults[lang] = { language: lang, totalCharacters: results.length, overallStats: aggSimple(results), byTier, results };
+  }
+  session.destroy();
+
+  lastResult = { model: "Prompt API", timestamp: new Date().toISOString(), languages: langResults };
+  renderPromptAPIResults(lastResult);
+  showStatus(`Done — Prompt API, ${Object.keys(langResults).length} languages`);
+}
+
+function findLanguageModel() {
+  if (typeof LanguageModel !== "undefined") return LanguageModel;
+  if (window.ai?.languageModel) return window.ai.languageModel;
+  if (self.ai?.languageModel) return self.ai.languageModel;
+  return null;
+}
+
+function aggSimple(results) {
+  const n = results.length;
+  if (n === 0) return { totalSamples: 0, validUtf8Rate: 0, avgDfaPartial: 0, avgDfaStrict: 0, avgDfaSoft: 0 };
+  return {
+    totalSamples: n,
+    validUtf8Rate: results.filter(r => r.isValidUtf8 ?? r.dfa.binaryStrict === 1).length / n,
+    avgDfaPartial: results.reduce((s, r) => s + r.dfa.partialScore, 0) / n,
+    avgDfaStrict: results.reduce((s, r) => s + r.dfa.binaryStrict, 0) / n,
+    avgDfaSoft: results.reduce((s, r) => s + r.dfa.binarySoft, 0) / n,
+  };
+}
+
 function showStatus(msg) { $("status").textContent = msg; }
 
-function renderResults(result) {
+// ─── Results rendering ───
+
+function renderHFResults(result) {
   $("results").style.display = "block";
-  const tabsEl = $("tabs");
-  const contentsEl = $("tabContents");
-  tabsEl.innerHTML = "";
-  contentsEl.innerHTML = "";
+  const tabsEl = $("tabs"); tabsEl.innerHTML = "";
+  const contentsEl = $("tabContents"); contentsEl.innerHTML = "";
 
   const langs = Object.keys(result.languages);
   langs.forEach((lang, i) => {
     const tab = document.createElement("div");
     tab.className = "tab" + (i === 0 ? " active" : "");
-    tab.textContent = lang.toUpperCase();
-    tab.dataset.lang = lang;
+    tab.textContent = lang.toUpperCase(); tab.dataset.lang = lang;
     tab.addEventListener("click", () => switchTab(lang));
     tabsEl.appendChild(tab);
 
     const content = document.createElement("div");
     content.className = "tab-content card" + (i === 0 ? " active" : "");
     content.id = "tab-" + lang;
-    content.innerHTML = renderLangResult(result.languages[lang]);
+    content.innerHTML = renderHFLang(result.languages[lang]);
     contentsEl.appendChild(content);
   });
+}
+
+function renderHFLang(lr) {
+  let html = `<p>${lr.totalCharacters} characters (Level 0)</p>`;
+  html += `<h2>Overall</h2>`;
+  html += hfStatsTable(lr.overallStats);
+  html += `<h2>By Tier</h2>` + hfTierTable(lr.byTier);
+
+  html += `<h2>Samples</h2>`;
+  html += `<table><tr><th>Char</th><th>Tier</th><th class="num">V_partial</th><th class="num">V_strict</th>` +
+           `<th class="num">PPL</th><th class="num">ΔLL</th></tr>`;
+  for (const r of lr.results.slice(0, 100)) {
+    const cls = r.dfa.partialScore >= 0.9 ? "good" : r.dfa.partialScore >= 0.5 ? "warn" : "bad";
+    const dCls = r.deltaLL > 0 ? "good" : r.deltaLL < 0 ? "bad" : "";
+    html += `<tr><td class="char-cell">${esc(r.char)}</td>` +
+            `<td><span class="badge badge-${r.tier}">${r.tier}</span></td>` +
+            `<td class="num ${cls}">${r.dfa.partialScore.toFixed(4)}</td>` +
+            `<td class="num">${r.dfa.binaryStrict.toFixed(0)}</td>` +
+            `<td class="num">${isFinite(r.perplexity) ? r.perplexity.toFixed(1) : "∞"}</td>` +
+            `<td class="num ${dCls}">${r.deltaLL.toFixed(2)}</td></tr>`;
+  }
+  html += `</table>`;
+
+  if (lr.level1) {
+    html += `<h2>Level 1: Context-Guided (${lr.level1.totalSamples} samples)</h2>`;
+    html += hfStatsTable(lr.level1.stats);
+    html += `<table><tr><th>Term</th><th class="num">Match</th><th class="num">V_partial</th>` +
+             `<th class="num">PPL</th><th class="num">ΔLL</th></tr>`;
+    for (const r of lr.level1.results.slice(0, 100)) {
+      const cls = r.dfa.partialScore >= 0.9 ? "good" : r.dfa.partialScore >= 0.5 ? "warn" : "bad";
+      html += `<tr><td class="char-cell">${esc(r.term)}</td>` +
+              `<td class="num ${r.termMatch ? "good" : "bad"}">${r.termMatch ? "✓" : "✗"}</td>` +
+              `<td class="num ${cls}">${r.dfa.partialScore.toFixed(4)}</td>` +
+              `<td class="num">${isFinite(r.perplexity) ? r.perplexity.toFixed(1) : "∞"}</td>` +
+              `<td class="num">${r.deltaLL.toFixed(2)}</td></tr>`;
+    }
+    html += `</table>`;
+  }
+  return html;
+}
+
+function hfStatsTable(s) {
+  let html = `<table>`;
+  html += `<tr><td>V_partial</td><td class="num">${s.avgVPartial.toFixed(4)}</td></tr>`;
+  html += `<tr><td>V_binary_strict</td><td class="num">${s.avgVBinaryStrict.toFixed(4)}</td></tr>`;
+  html += `<tr><td>V_binary_soft</td><td class="num">${s.avgVBinarySoft.toFixed(4)}</td></tr>`;
+  html += `<tr><td>Perplexity</td><td class="num">${isFinite(s.avgPerplexity) ? s.avgPerplexity.toFixed(2) : "∞"}</td></tr>`;
+  html += `<tr><td>Gold better / Gen better / Equal</td><td class="num">${s.goldBetterCount} / ${s.genBetterCount} / ${s.equalCount}</td></tr>`;
+  if (s.termMatchRate !== undefined) html += `<tr><td>Term Match Rate</td><td class="num">${(s.termMatchRate * 100).toFixed(1)}%</td></tr>`;
+  html += `</table>`;
+  return html;
+}
+
+function hfTierTable(byTier) {
+  let html = `<table><tr><th>Tier</th><th class="num">N</th><th class="num">V_partial</th>` +
+             `<th class="num">V_strict</th><th class="num">V_soft</th><th class="num">PPL</th>` +
+             `<th class="num">Gold>Gen</th></tr>`;
+  for (const [tier, s] of Object.entries(byTier)) {
+    html += `<tr><td><span class="badge badge-${tier}">${tier}</span></td>` +
+            `<td class="num">${s.count}</td>` +
+            `<td class="num">${s.avgVPartial.toFixed(4)}</td>` +
+            `<td class="num">${s.avgVBinaryStrict.toFixed(4)}</td>` +
+            `<td class="num">${s.avgVBinarySoft.toFixed(4)}</td>` +
+            `<td class="num">${isFinite(s.avgPerplexity) ? s.avgPerplexity.toFixed(1) : "∞"}</td>` +
+            `<td class="num">${s.goldBetterCount}/${s.count}</td></tr>`;
+  }
+  html += `</table>`;
+  return html;
+}
+
+function renderPromptAPIResults(result) {
+  $("results").style.display = "block";
+  const tabsEl = $("tabs"); tabsEl.innerHTML = "";
+  const contentsEl = $("tabContents"); contentsEl.innerHTML = "";
+  const langs = Object.keys(result.languages);
+  langs.forEach((lang, i) => {
+    const tab = document.createElement("div");
+    tab.className = "tab" + (i === 0 ? " active" : "");
+    tab.textContent = lang.toUpperCase(); tab.dataset.lang = lang;
+    tab.addEventListener("click", () => switchTab(lang));
+    tabsEl.appendChild(tab);
+
+    const content = document.createElement("div");
+    content.className = "tab-content card" + (i === 0 ? " active" : "");
+    content.id = "tab-" + lang;
+    const lr = result.languages[lang];
+    let html = `<p>${lr.totalCharacters} characters</p>`;
+    html += simpleStatsTable(lr.overallStats);
+    html += `<table><tr><th>Char</th><th>Tier</th><th>Generated</th><th class="num">V_partial</th></tr>`;
+    for (const r of lr.results.slice(0, 50)) {
+      const cls = r.dfa.partialScore >= 0.9 ? "good" : r.dfa.partialScore >= 0.5 ? "warn" : "bad";
+      html += `<tr><td class="char-cell">${esc(r.char)}</td>` +
+              `<td><span class="badge badge-${r.tier}">${r.tier}</span></td>` +
+              `<td>${esc((r.generated ?? "").slice(0, 30))}</td>` +
+              `<td class="num ${cls}">${r.dfa.partialScore.toFixed(4)}</td></tr>`;
+    }
+    html += `</table>`;
+    content.innerHTML = html;
+    contentsEl.appendChild(content);
+  });
+}
+
+function simpleStatsTable(s) {
+  return `<table>` +
+    `<tr><td>Valid UTF-8</td><td class="num">${(s.validUtf8Rate * 100).toFixed(1)}%</td></tr>` +
+    `<tr><td>V_partial</td><td class="num">${s.avgDfaPartial.toFixed(4)}</td></tr>` +
+    `<tr><td>V_binary_strict</td><td class="num">${s.avgDfaStrict.toFixed(4)}</td></tr>` +
+    `</table>`;
 }
 
 function switchTab(lang) {
@@ -542,51 +591,6 @@ function switchTab(lang) {
   document.querySelectorAll(".tab-content").forEach(c => c.classList.toggle("active", c.id === "tab-" + lang));
 }
 
-function renderLangResult(lr) {
-  let html = `<p>${lr.totalCharacters} characters evaluated</p>`;
-
-  html += `<h2 style="margin-top:1rem">Overall</h2>`;
-  html += statsTable(lr.overallStats);
-
-  html += `<h2>By Tier</h2>`;
-  html += `<table><tr><th>Tier</th><th class="num">N</th><th class="num">Valid UTF-8</th>` +
-           `<th class="num">V_partial</th><th class="num">V_strict</th><th class="num">V_soft</th></tr>`;
-  for (const [tier, stats] of Object.entries(lr.byTier)) {
-    html += `<tr><td><span class="badge badge-${tier}">${tier}</span></td>` +
-            `<td class="num">${stats.totalSamples}</td>` +
-            `<td class="num">${pct(stats.validUtf8Rate)}</td>` +
-            `<td class="num">${stats.avgDfaPartial.toFixed(4)}</td>` +
-            `<td class="num">${stats.avgDfaStrict.toFixed(4)}</td>` +
-            `<td class="num">${stats.avgDfaSoft.toFixed(4)}</td></tr>`;
-  }
-  html += `</table>`;
-
-  html += `<h2>Samples</h2>`;
-  html += `<table><tr><th>Char</th><th>Tier</th><th>Generated</th>` +
-           `<th class="num">V_partial</th><th class="num">V_strict</th></tr>`;
-  for (const r of lr.results) {
-    const cls = r.dfa.partialScore >= 0.9 ? "good" : r.dfa.partialScore >= 0.5 ? "warn" : "bad";
-    const genPreview = r.generated.slice(0, 30) + (r.generated.length > 30 ? "…" : "");
-    html += `<tr><td class="char-cell">${esc(r.char)}</td>` +
-            `<td><span class="badge badge-${r.tier}">${r.tier}</span></td>` +
-            `<td>${esc(genPreview)}</td>` +
-            `<td class="num ${cls}">${r.dfa.partialScore.toFixed(4)}</td>` +
-            `<td class="num">${r.dfa.binaryStrict.toFixed(0)}</td></tr>`;
-  }
-  html += `</table>`;
-  return html;
-}
-
-function statsTable(s) {
-  return `<table>` +
-    `<tr><td>Valid UTF-8</td><td class="num">${pct(s.validUtf8Rate)}</td></tr>` +
-    `<tr><td>V_partial (avg)</td><td class="num">${s.avgDfaPartial.toFixed(4)}</td></tr>` +
-    `<tr><td>V_binary_strict (avg)</td><td class="num">${s.avgDfaStrict.toFixed(4)}</td></tr>` +
-    `<tr><td>V_binary_soft (avg)</td><td class="num">${s.avgDfaSoft.toFixed(4)}</td></tr>` +
-    `</table>`;
-}
-
-function pct(v) { return (v * 100).toFixed(1) + "%"; }
 function esc(s) { const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
 </script>
 
